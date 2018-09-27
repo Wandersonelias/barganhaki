@@ -11,11 +11,12 @@
  * It is generally better to create a new file per style scope.
  *
 
+
  *= require bootstrap
- *= require_tree .
  *= require_self
- *= require bootstrap_sb_admin_base_v2
- *= require font-awesome
- *= require bootstrap_sb_admin_base_v2
+ 
+ 
+ 
  
  */
+ 

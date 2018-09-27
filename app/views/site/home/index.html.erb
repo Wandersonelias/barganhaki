@@ -1,2 +1,32 @@
-<h1>Site::Home#index</h1>
-<p>Find me in app/views/site/home/index.html.erb</p>
+
+    <!-- principal inicio -->
+    <main class="principal">
+    
+    <div class="container">
+    <% @products.each do |produtos| %>
+        <div class="item-sec">
+       
+                <div class="img-item">
+                    <%= image_tag produtos.image.url(:medium) %>
+                    
+                    <section class="desc-item">
+                        <%= produtos.title %>
+                </div>
+                    <hr class="traco">
+                </section>
+                <div class="rod-item">
+                    <div class="de">De: R$ <%= produtos.priceof %></div>
+                    <div class="por">Por: R$ <%= produtos.pricefor %></div>
+                    
+                    <div class="botao">
+                    <button class="botao-adc" type="submmit">ADICIONAR AO CARRINHO</button>
+                    </div>
+                    
+                </div>
+        </div>
+        <% end %>        
+    </main>
+    
+
+    
+    
