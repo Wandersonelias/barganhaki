@@ -40,7 +40,7 @@ class Checkout::PaymentsController < ApplicationController
 
         Iugu.api_key = "fbb01254c79ddaecc9ad696535a1f241"
         payment_method = nil
-        debugger
+        
         customer = Iugu::Customer.create({
           email: current_user.email,
           name: current_user.name,

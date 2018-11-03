@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
     categorias = Category.create([
-        {description: "Hamburgueria",  icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Supermercados", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Turismo", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Cafeterias", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Hotéis", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Pizzarias", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Restaurantes", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Cinemas", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')},
-        {description: "Saúde", icon: File.new('/home/wanderson/barganhaki/app/assets/images/carrinho.png', 'r')}
+        {description: "Hamburgueria",  icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Supermercados", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Turismo", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Cafeterias", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Hotéis", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Pizzarias", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Restaurantes", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Cinemas", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')},
+        {description: "Saúde", icon: File.new("#{Rails.root}/app/assets/images/carrinho.png", 'r')}
     ])
     ###########################################
 
