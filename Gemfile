@@ -18,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 
 #Gem WillPaginate
 gem 'will_paginate', '~> 3.1.0'
+#gem da iugu
+gem 'iugu' 
 
 #gem assets bootstrap
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'

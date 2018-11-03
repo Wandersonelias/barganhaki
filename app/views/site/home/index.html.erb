@@ -1,31 +1,43 @@
 
-    <!-- principal inicio -->
-    <main class="principal">
-    
-    <div class="container">
-    <% @products.each do |produtos| %>
-        <div class="item-sec">
-       
-                <div class="img-item">
-                    <%= image_tag produtos.image.url(:medium) %>
-                    
-                    <section class="desc-item">
-                        <%= produtos.title %>
-                </div>
-                    <hr class="traco">
-                </section>
-                <div class="rod-item">
-                    <div class="de">De: R$ <%= produtos.priceof %></div>
-                    <div class="por">Por: R$ <%= produtos.pricefor %></div>
-                    
-                    <div class="botao">
-                    <button class="botao-adc" type="submmit">ADICIONAR AO CARRINHO</button>
+    <!-- principal inicio -->    
+
+          <% @products.each do |product| %>
+          
+            <div class="item-sec">
+                <%= link_to site_product_detail_path(product.id) do %>
+                    <div class="img-item ">
+                        <%= image_tag product.image.url(:medium) %>
+                        
+                        <section class="desc-item">
+                            <%= product.title %>
                     </div>
-                    
-                </div>
-        </div>
-        <% end %>        
-    </main>
+                <% end %>
+                        <hr class="traco">
+                    </section>
+                    <div class="rod-item">
+                        <div class="de">De: R$ <%= product.priceof %></div>
+                        <div class="por">Por: R$ <%= product.pricefor %></div>
+                        <!-- alteração
+                        <div class="botao">
+                        <%= button_to 'ADICIONAR AO CARRINHO', compras_path(:product_id => product.id), class: "botao-adc"  %>
+                        </div>
+                        -->
+                        <div class="botao">
+                        <% if @carrinho.include?(product.id.to_s) %>
+                            <%= link_to 'REMOVER DO CARRINHO', "/remover_carrinho?product_id=#{product.id}",class: "botao-rmv" %>                  
+                        <% else %>
+                            <%= button_to 'ADICIONAR NO CARRIHO', compras_path(:product_id => product.id), class: "botao-adc"  %>
+                        <% end %>
+                        </div>
+                        
+                    </div>
+        
+            </div>
+        
+        <% end %>
+        
+          
+    
     
 
     

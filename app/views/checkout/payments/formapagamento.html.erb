@@ -1,0 +1,99 @@
+<script src="https://js.iugu.com/v2"></script>
+<div class="container">
+<h1>Pagamento do pedido</h1>
+
+<form>
+    <div class="row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome</label>
+          <input type="text" class="form-control" id="inputName4" value= "<%= current_user.name %>"placeholder="Email">
+        </div>
+    </div> 
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input type="text" class="form-control" id="inputEmail4" value= "<%= current_user.email %>"  placeholder="Email">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" value= "<%= current_user.address %>" placeholder="1234 Main St">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-row col-md-6">
+        <div class="form-group col-md-6">
+          <label for="inputNameCard">Numero do Cartão:</label>
+          <input type="text" class="form-control" id="numeroCartao" placeholder="0000000000000000">
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="form-row col-md-6">
+      <div class="form-group col-md-6">
+        <label for="inputNameCard">Nome do Cartão:</label>
+        <input type="text" class="form-control" id="nomeCartao" placeholder="Maria M Santos">
+      </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="form-row col-md-6">
+    <div class="form-group col-md-3">
+      <label for="inputState">Mês</label>
+      <select id="mesCartao" class="form-control">
+        <option selected>Mês ▾</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+      </select>
+    </div>
+     <div class="form-group col-md-3">
+      <label for="inputState">Ano</label>
+      <select id="anoCartao" class="form-control">
+             <option selected>Ano ▾</option>
+             <option value="2018">2018</option>
+             <option value="2019">2019</option>
+             <option value="2020">2020</option>
+             <option value="2021">2021</option>
+             <option value="2022">2022</option>
+             <option value="2023">2023</option>
+             <option value="2024">2024</option>
+             <option value="2025">2025</option>
+             <option value="2026">2026</option>
+             <option value="2027">2027</option>
+      </select>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="form-row col-md-6">
+      <div class="form-group col-md-6 cvv">
+        <label for="inputCity">CVV</label>
+        <input type="text" class="form-control" id="cvvCartao" placeholder="000">
+        <%= image_tag("cvv.png") %>
+      </div>
+      </div>
+    </div>
+  <div class="row">
+      <div class="form-row col-md-6">
+      <div class="form-group col-md-3">
+      <a href="#" onclick="pagamento.cartao()" class="btn btn-primary">Pagar</a>
+      </div>
+      </div>
+  </div>
+</form>
+</div>

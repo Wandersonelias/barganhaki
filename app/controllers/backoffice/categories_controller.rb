@@ -6,7 +6,7 @@ class Backoffice::CategoriesController < ApplicationController
   layout "backoffice"
   
   def index
-    @categories = Category.all()
+    @categories = Category.all
   end
 
 

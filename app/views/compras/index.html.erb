@@ -1,0 +1,69 @@
+
+    <h1>Meu carrrinho</h1>
+<div class="row">
+     <div class="col-md-12 carrinho-row">
+        <table class="table table-hover">
+        <% if @carrinho.empty? %>
+                        <div class= "pull-center carrinho-vazio">
+                            <div class="alert alert-primary text-center aviso" role="alert"> <%= image_tag("whitecar.png")%></br><p>Seu carrinho está vazio. Continue comprando para encontrar uma oferta!</p></br>
+                            <%= link_to "Continuar comprando", root_path, class: "btn btn-success continuar"  %>
+
+                            </div>
+                        </div>
+        <% else %>
+        
+            <thead calss="thead-dark">
+                <tr>
+                
+                <th scope="col">Imagem</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Preço de venda</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">User</th>
+                <th scope="col">Ações</th>
+                </tr>
+            </thead>
+        
+            <% @products.each do |produtos| %>  
+                            <% if @carrinho.include?(produtos.id.to_s) %>
+                                <tbody>
+                                        <tr>
+                                            
+                                            <td width="100px"><%= image_tag produtos.image.url(:small) %></td>
+                                            <td width="250px"><%= produtos.title %></td>
+                                            <td width="120px"><%= produtos.pricefor %></td>
+                                            <td width="150px"><%= produtos.category.description %></td>
+                                            <td width="150px"><%= produtos.user.id %></td>
+                                            <td>
+                                                <%= link_to "/remover?product_id=#{produtos.id}",class: "btn btn-danger remover" do%>
+                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
+                                                <% end %>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            <% end  %>
+
+            <% end %>
+        
+                
+           
+        </table> 
+        
+           
+       
+    </div><!--Final da div col-m12-->
+        
+</div><!--Final da div Row-->
+<div class="row">
+</div>
+    <div class="row botoes-row">
+                    <div class="pull-right"> 
+                        <%= link_to "Continuar comprando", root_path, class: "btn btn-success continuar"  %>
+                        <%= link_to "Finalizar compra", 'finalizar/compra', class: "btn btn-danger finalizar"  %>
+                    </div>
+                    
+    <div>
+        
+        
+    <% end %> 
+             

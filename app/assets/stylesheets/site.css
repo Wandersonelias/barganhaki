@@ -1,78 +1,256 @@
 /*
 *= require bootstrap
 */
-*{
-    box-sizing: border-box;
+body{
     margin: 0;
     padding: 0;
-
 }
-.test{
-    border:1px solid black;
+/* Menus do sistema */
+.menu-user{
+    background-color: #320055;
+    padding: 5px;
+    width: 100%;
+    height: 60px;
+}
+.menu-user a{
+    background-color: transparent;
+    border: 2px solid #FFF;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
+.menu-user b{
+    color: #FFF;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    
+}
+.menu-user .carrinho{
+
+    border: none;
+    margin-right: 5px;
+   
+}
+/*Carrinho -------*/
+.carrinho-vazio img{
+    width: 150px;
+    height: 150px;
+}
+.carrinho-vazio .aviso{
+    background-color: #DCDCDC;
+    
+}
+.carrinho-vazio .aviso .continuar{
+    height: 50px;
+    font-weight: 900;
+    background-color: #00AA45;
+    font-size: 18pt;
+   
+}
+.carrinho-vazio .aviso p{
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 18pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*Cabeçalho do site com logo*/
 .cabecalho{
-    background-color: #281854;
+    background-color: #320055;
     width: auto;
-    height: 360px;
+    height: 420px;
 }
 .cabecalho img{
-    
     float: center;
-    padding-top: 3%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    height: 300px;
+    width: 400px;
 }
-.pesq{
-    background-color: #97cfbc;
-    width: auto;
-    height: 90px;   
+/*Input search --- begin */
+.cabecalho .campo{
+    width: 100%;
+    height: 60px;
 }
+.cabecalho .cmd_buscar{
+    height: 60px;
+    background-color: #00AA45;
+    font-weight: bold;
+    font-size: 17pt;
+    color: #FFF;
+
+}
+
+
+/*Menu de opções CSS -- begin*/
+#checkbox{
+    display: none;
+}
+#icone{
+    cursor: pointer;
+    font-size: 20pt;
+    font-family: Arial;
+    font-weight: 700;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+
+}
+
+#icone b{
+    visibility: hidden;
+    
+}
+.menu-opcoes{
+    width: 100%;
+    height: 60px;
+}
+.menu-opcoes ul{
+    list-style: none;
+    position: relative;
+   
+}
+.menu-opcoes ul li{
+    display: inline;
+    float: left;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 5px;
+    
+
+}
+.menu-opcoes li a{
+    text-decoration: none;
+    font-size: 12pt;
+    color: #fff;
+    margin-left: 25px;
+    
+
+}
+.menu-opcoes li a:hover{
+    
+    color: red;
+    
+    
+
+}
+@media only screen and (max-width: 600px) {
+    
+        #icone{
+            width: 100%;
+            background: #050542;
+            text-align: center;
+        }
+        #icone b{
+            visibility: visible;
+            text-align: center;
+        }
+        
+        #checkbox:checked ~ .menu-opcoes{
+            margin-left: 0;
+            
+        }
+        
+        .menu-opcoes{
+            width: 100%;
+            background-color:#00AA45;
+        }
+        .cat2{
+            background: #00AA45;
+        }
+}
+
+
+/*...*/
+/*Menu de opções CSS -- end*/
+
+/* --------------------Inicio do meu de categorias---------------------- */
 .categorias{
     width: auto;
     height: 100px;
     margin-top: 5px;
 }
+
 .cat{
     border-bottom: 1px, solid, black;
+    background-color: #fff;
 }
-
-.principal{
-    width: 70%;
-    min-height: 500px;
-    margin: 0 auto;
-    display: flex;
-}
-
 .icon{
     justify-content: flex-start;
     border: 1px solid rgba(0,0,0,0.3);
     box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5); 
     background-color: gray;
     border-radius: 50%;
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     display: flex;
     margin: 0 auto;
     
 }
-.img{
+.lista li{
+    display: inline;
+    float: left;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    
+}
+.lista li {
+    text-align: center;
+}
+.circle{
+    background-color: #BABABA;
+    border-radius: 100%;
+    height: 65px;
+    width: 65px;
+    margin: auto;
+    
+}
+.icon-tt img{
+    padding : 14%;
+    margin: auto;
+}
+
+.icont-tt img{
+    justify-content: flex-start;
+    margin: 7px;
+}
+.icont-tt img{
     justify-content: flex-start;
     margin: 7px;
 }
 .icon-img{
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     display: flex;
-    margin: 20px auto;
+    margin: 15px auto;
 }
 .icon-desc{
     color: rgba(0,0,0,0.8);
     text-align: center;
     margin-top: 3px;
 }
+/*Adicionar responsividade*/
+@media only screen and (max-width: 600px) {
 
+    .menu-categorias .circle{
+        visibility: hidden;
+        
+    }
+    .menu-categorias ul li{
+        width: 100%;    
+    }
+
+}
+/*Adicionar responsividade*/
+
+/* --------------------Inicio do da exibição dos produtos ---------------------- */
 .item-sec{
-    width: 350px;
-    height: 400px;
+    width: 30%;
+    height: 430px;
     margin-left: 2%;
     margin-top: 4%;
     font-family: "arial", sans-serif;
@@ -80,8 +258,8 @@
     border-radius: 2px;
     float: left;
 }
-.img-item{
-    width: inherit;
+.img-item img{
+    width: 100%;
     max-height: 70%;
 }
 .img-item-confg{
@@ -97,7 +275,7 @@
     margin-bottom: 20px;
 }
 .rod-item{
-    width: inherit;
+    width: 100%;
     min-height: 30%;
 }
 .de{
@@ -115,75 +293,79 @@
     margin: 0 auto;
     color: rgba(0,0,0,0.8);
 }
-.botao-adc{
+.botao-rmv{
     font-size: 12px;
+    width: 200px;
     color: #FFF;
     display: flex;
+    font-weight: bolder;
     margin: 30px auto;
     text-decoration: none;
     text-transform: capitalize;
     padding: .5em 1.5em;
     border: 1px solid #c1c1c1;
     border-radius: 5px;
-    background: #70BC3C;
+    background: red;
+    outline: none;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    transition: .5s all;
+}
+.botao-adc{
+    font-size: 12px;
+    color: #FFF;
+    display: flex;
+    font-weight: bolder;
+    margin: 30px auto;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: .5em 1.5em;
+    border: 1px solid #c1c1c1;
+    border-radius: 5px;
+    background: #00AA45;
+    outline: none;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    transition: .5s all;
+}
+/*---------------Detalhamento dos produtos ------------------------*/
+.desc-item-detail-titulo{
+    font-size: 20pt;
+    text-align: center;
+}
+.desc-item-detail{
+    font-size: 16pt;
+}
+.rod-item-detail .de{
+    font-size: 14pt;
+    text-decoration: line-through;
+
+}
+.rod-item-detail .por{
+    font-size: 18pt;
+}
+.botao-adc-detail{
+    font-size: 14pt;
+    color: #FFF;
+    display: flex;
+    font-weight: bolder;
+    margin: 30px auto;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: .5em 1.5em;
+    border: 1px solid #c1c1c1;
+    border-radius: 5px;
+    background: #00AA45;
     outline: none;
     -webkit-transition: .5s all;
     -moz-transition: .5s all;
     transition: .5s all;
 }
 
-
-.lista li{
-    display: inline;
-    float: left;
-    margin-top: 5px;
-    margin-right: 25px;
-    margin-left: 25px;
-    
-}
-.lista li {
-    text-align: center;
-}
-.circle{
-    background-color: rgba(187,187,187, 1);
-    border-radius: 100%;
-    height: 65px;
-    width: 65px;
-    margin: auto;
-    
-}
-.icon-tt img{
-    padding : 14%;
-    margin: auto;
-}
-.footer-list{
-    margin-top: 5%;
-    background-color: #f34;
-}
-ul li{
-    display: list-item;
-
-}
-/*-------------------------css do perfil antes do login ----------------------------------------*/
-.menu-user{
-    background-color: #281854;
-    padding: 5px;
+/* --------------------Inicio do da rodapé ---------------------- */
+.rodape{
     width: 100%;
-    height: 52px;
+    height: 300px;
+    margin-top: 10px;
+    background-color: #320055;
 }
-.menu-user a{
-    background-color: transparent;
-    border: 2px solid #FFF;
-    font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
-.menu-user b{
-    color: #FFF;
-    font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    
-}
-
-/*--------------------------------Fim----------------------------------------------------------*/

@@ -1,0 +1,33 @@
+<h1>Teste</h1>
+    <main class="principal">
+    
+    <div class="container">
+    <% @products.each do |product| %>
+        <div class="item-sec">
+        <%= link_to site_product_detail_path(product.id) do %>
+                <div class="img-item">
+                    <%= image_tag product.image.url(:medium) %>
+                    
+                    <section class="desc-item">
+                        <%= product.title %>
+                </div>
+        <% end %>
+                    <hr class="traco">
+                </section>
+                <div class="rod-item">
+                    <div class="de">De: R$ <%= product.priceof %></div>
+                    <div class="por">Por: R$ <%= product.pricefor %></div>
+                    
+                    <div class="botao">
+                    <% if @carrinho.include?(product.id.to_s) %>
+                        <%= button_to 'REMOVER DO CARRINHO', compras_path(:product_id => product.id), class: "botao-adc", style: "background:
+                    red;"  %>
+                    <% else %>
+                        <%= button_to 'ADICIONAR NO CARRIHO', compras_path(:product_id => product.id), class: "botao-adc"  %>
+                    <% end %>
+                    </div>
+                    
+                </div>
+        </div>
+        <% end %>        
+    </main>

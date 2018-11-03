@@ -1,0 +1,19 @@
+<input type="checkbox" id="checkbox">
+<label id="icone" for="checkbox"><%= image_tag("icone.png") %> <b>Menu</b></label>
+<div class="menu-lateral">
+    <nav>
+        <%= link_to site_profile_products_index_path do %>
+             <div class="link">Dashboard</div>   
+        <% end %>
+        <%= link_to site_profile_products_index_path do %>
+             <div class="link">Produtos</div>   
+        <% end %>
+        <%= link_to new_site_profile_product_path do %>
+             <div class="link">Novo produto</div> 
+        <% end %>
+        <a href="#"></a>
+        <a href="#"><div class="link">Vendas</div></a>
+        <a href="#"><div class="link">Compras</div></a>
+    </nav>
+
+</div>

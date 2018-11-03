@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Barganhaki</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- css -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'site', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'profile', media: 'all'%>
+   
+    <!-- javascript-->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'site', 'data-turbolinks-track': 'reload' %>
+
+    
+  </head>
+
+<body>
+
+    
+        <%= render partial: 'layouts/profile_shared/navigation' %> 
+        <%=  render partial: 'layouts/profile_shared/sidebar'%>
+        <div class="container-central">
+        <%= yield %>
+        </div>
+        
+
+      <!-- Menu Toggle Script -->
+    
+</div>
+</body>
+  
+  </body>
+</html>

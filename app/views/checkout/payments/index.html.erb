@@ -1,0 +1,18 @@
+<ul>
+<% @orders.each do |item| %>
+  <li>
+        <div>Data do pedido: <%= item.created_at %></div>
+        <div>ID do pedido: <%= item.id %></div>
+        <hr>
+        <b>Items</b>
+        <ul>
+            <% item.order_items.each do |orderitem| %>
+            <li><%= orderitem.product.title %> || <%= orderitem.product.pricefor %> %></li>
+            <h2><%= item.invoice_id %></h2>
+            <% end %>
+        </ul>
+
+  </li>
+  
+<% end %>
+</ul>

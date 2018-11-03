@@ -1,15 +1,35 @@
 class Product < ApplicationRecord
   include Paperclip::Glue
+  
+  #relacionamentos
+  
   belongs_to :category
   belongs_to :user
+  
 
+  #funcao para linkar itens a produtos
+=begin
+  before_destroy :ensure_not_referenced_by_any_item
+
+  private
+  def ensure_not_referenced_by_any_item
+    if item.empty?
+        return true
+    else
+      errors.add(:base, 'Produtos estao presentes')
+      return false
+    end
+  
+  end
+=end
 
   #Scopes
 
   scope :last_nine, -> {limit(9).order(created_at: :desc)}
-  scope :user_product, ->(user) { where(user: user)}
+  scope :user_product, -> (user) { where(user: user.id)}
   scope :last_five, -> {limit(5).order(created_at: :desc)}
-
+  scope :search, ->(q) {where(:title => params[:q])}
+  scope :buscar, ->(q) {where("title LIKE ?","%#{q}%")}
   #validações
 
   validates_presence_of :title, :description, :pricefor, :priceof, :image, :category

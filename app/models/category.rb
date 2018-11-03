@@ -5,4 +5,8 @@ class Category < ApplicationRecord
     validates_attachment_content_type :icon, content_type: /\Aimage\/.*\z/
 
 
+#tornando url amigaveis para SEO
+
+ 
+
 end

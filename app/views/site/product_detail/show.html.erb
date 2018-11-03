@@ -1,0 +1,73 @@
+<main class="principal">
+    
+   
+        <div class="item-sec-detail row">
+                <section class="desc-item-detail-titulo">
+                <%= @product.title %>    
+                <hr class="traco">
+                </br>
+                </section>
+
+                <div class="img-item-detail col-md-6">
+                    <%= image_tag @product.image.url(:post) %>
+
+                </div>
+                <div class="col-md-6">    
+                        
+                        <section class="desc-item-detail">
+                                <%= @product.description %>
+                        </section>
+
+                        <div class="rod-item-detail">
+                            <div class="de">De: R$ <%= @product.priceof %></div>
+                            <div class="por">Por: R$ <%= @product.pricefor %></div>
+                            
+                            <div class="botao-detail">
+                            <%= button_to 'ADICIONAR AO CARRINHO', compras_path(:product_id => @product.id), class: "botao-adc-detail"  %>
+                            </div>
+                            <input type="hidden" value="<%= long = -51.065942 %>" id="longitude">
+                            <input type="hidden" value="<%= lati = 0.039458 %>" id="latitude">
+                        </div>
+                </div>
+                
+    
+        </div>
+        <div class="teste">
+        <h1>ONDE RETIRAR SUA OFERTA?</h1>
+        <div id="map"></div>
+            
+        </div>
+        </br>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1TfwSIbzE9FzF67i5rtjoN07PqVGASZo&callback=initMap"async defer></script>
+            <script>
+                var map;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 0.039458, lng: -51.065942},
+                    zoom: 16
+                    });
+                    var teste1 = document.getElementById('longitude').value
+                    var teste2 = document.getElementById('latitude').value
+                    var ponto = new google.maps.LatLng(teste2, teste1);
+                    var marker = new google.maps.Marker({
+                    position: ponto,//seta posição
+                    map: map,//Objeto mapa
+                    title:"Capital Imoveis"//string que será exibida quando passar o mouse no marker
+                    //icon: caminho_da_imagem
+  });
+                }
+            </script>
+            
+            <style>
+                /* Always set the map height explicitly to define the size of the div
+                * element that contains the map. */
+                #map {
+                    height: 500px;
+                    width: 100%;
+                    
+                }
+                /* Optional: Makes the sample page fill the window. */
+                
+            </style>
+   
+</main>

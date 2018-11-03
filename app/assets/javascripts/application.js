@@ -47,3 +47,56 @@ $.rails.allowAction = function(element) {
   
     return false;
   }
+
+
+
+var pagamento = {};
+pagamento.cartao = function(){
+  Iugu.setAccountID("7BF84F636188451EA2CE81F1FCA69DE5");
+  Iugu.setTestMode(true); 
+  Iugu.setup();
+
+  var nome = $("#nomeCartao").val();
+  var number = $("#numeroCartao").val();
+  var month = $("#mesCartao").val();
+  var year = $("#anoCartao").val();
+  var cvv = $("#cvvCartao").val();
+
+  var sobrenome = "";
+  try{
+    var splitName = nome.split(' ');
+    nome = splitName[0];
+    sobrenome = splitName[splitName.length-1];
+  }catch(e){}
+
+  cc = Iugu.CreditCard(number, month, year, nome, sobrenome, cvv);
+
+  Iugu.createPaymentToken(cc, function(dados) {
+    debugger
+    if (dados.errors) {
+      alert('Cartão inválido, tente novamente');
+    } else {
+      var data = {}
+      data.token_id = dados.id
+      data.months = 1 //$("#vezesCartao").val();
+     
+
+      var url = '/finalizar/compra.json';
+
+      $.ajax({
+        type: 'POST',
+        url: url,
+        headers: {
+          'Accept': 'application/json; charset=utf-8',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        data: JSON.stringify(data)
+      }).done(function() { 
+        alert("Sucesso")
+      }).fail(function(jqXHR, textStatus) {
+        alert("erro")
+      });
+    }
+  });
+
+}

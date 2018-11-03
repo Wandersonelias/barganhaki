@@ -4,9 +4,9 @@ class Backoffice::AdminsController < ApplicationController
 
 
   def index
-  # @admins = Admin.all
-    @admins = Admin.com_acesso_total # com uso de lambda arrow
-    @admins = Admin.com_acesso_restrito # com uso de lambda arrow
+    @admins = Admin.all
+    #@admins = Admin.com_acesso_total # com uso de lambda arrow
+    #@admins = Admin.com_acesso_restrito # com uso de lambda arrow
   end
   #metodo para criar novo admin
   def new
