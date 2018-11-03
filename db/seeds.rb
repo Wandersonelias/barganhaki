@@ -35,7 +35,7 @@
            status: true,
            category: Category.all.sample,
            user: User.all.sample,
-           image: File.new('/home/wanderson/barganhaki/app/assets/images/burg.png', 'r')
+           image: File.new("#{Rails.root}/app/assets/images/burg.png", 'r')
         
             )
     end
