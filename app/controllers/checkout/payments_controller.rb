@@ -35,7 +35,7 @@ class Checkout::PaymentsController < ApplicationController
     end
    
     def pagamento_confirmado?
-        debugger
+        
         token = params[:token_id]
 
         Iugu.api_key = "fbb01254c79ddaecc9ad696535a1f241"
