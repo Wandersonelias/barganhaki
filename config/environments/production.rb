@@ -96,7 +96,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: ENV.fetch('barganhakiimages'),
+      bucket: ENV.fetch('barganha-images'),
       access_key_id: ENV.fetch('AKIAJZC63YZMKIM5MDGA'),
       secret_access_key: ENV.fetch('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'),
       s3_region: ENV.fetch(''),
