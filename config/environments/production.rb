@@ -99,7 +99,7 @@ Rails.application.configure do
       bucket: ENV.fetch('barganhakiimages'),
       access_key_id: ENV.fetch('AKIAJZC63YZMKIM5MDGA'),
       secret_access_key: ENV.fetch('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'),
-      s3_region: ENV.fetch('South America'),
+      s3_region: ENV.fetch(''),
     }
   }
 end
