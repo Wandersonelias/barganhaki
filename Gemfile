@@ -52,11 +52,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-#sobreescrever os alerts
+# sobreescrever os alerts
 gem 'rails-assets-bootbox.js', source: 'https://rails-assets.org'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+#gem Sprockets
+gem 'sprockets', '~>3.7.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
