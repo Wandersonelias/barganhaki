@@ -33,6 +33,7 @@ class Backoffice::CategoriesController < ApplicationController
   end
 
   def update
+    debugger
     if @category.update(params_category)
       redirect_to backoffice_categories_path, notice: "A categoria #{@category.description}, Atualizada com sucesso!"
      else

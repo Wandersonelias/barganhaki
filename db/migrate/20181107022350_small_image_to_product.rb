@@ -3,3 +3,4 @@ class SmallImageToProduct < ActiveRecord::Migration[5.2]
     add_column :products , :small_image, :string
   end
 end
+ 
