@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_022350) do
+ActiveRecord::Schema.define(version: 2018_11_07_034253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_022350) do
     t.string "icon_content_type"
     t.bigint "icon_file_size"
     t.datetime "icon_updated_at"
+    t.string "icon"
   end
 
   create_table "compras", force: :cascade do |t|

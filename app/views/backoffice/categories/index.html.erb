@@ -34,7 +34,7 @@
                                         <tr>
                                             <td><%= categorias.id %></td>
                                             <td><%= categorias.description  %></td>
-                                            <td style = "width: 60px"><%= image_tag categorias.icon.url(:thumb) %></td>
+                                            <td style = "width: 60px"><%= image_tag categorias.icon %></td>
                                             
                                             <td style="width: 150px">
                                             <%= link_to edit_backoffice_category_path(categorias.id), class:"btn btn-primary btn-circle btn-lg" do  %>

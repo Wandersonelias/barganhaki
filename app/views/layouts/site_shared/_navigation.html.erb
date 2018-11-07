@@ -79,7 +79,7 @@
                             <% @categories.each do |categorias| %>                   
                             <li class="nav-item active text-center">
                                 <div class="circle">
-                                <span class="icon-tt text-justify"><%= image_tag categorias.icon.url(:thumb) %></span></br>
+                                <span class="icon-tt text-justify"><%= image_tag categorias.icon %></span></br>
                                 </div>
                                 <%= link_to "#{categorias.description}", site_category_path(categorias), class: "link" %>
                     
