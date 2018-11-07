@@ -25,8 +25,11 @@ gem 'iugu'
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 # gem responsavel pelo upload de imagens para o sistema
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 # gem amazon para fazer o upload de arquivos para o storage da amazon
 gem 'aws-sdk', '~> 2.3'
+
+
 # gem para autenticação de usuarios
 gem 'devise'
 #gem para o uso do s-admin
@@ -58,6 +61,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'aws-sdk', '~> 2.3'
+  gem 'figaro'
 end
 
 group :development do

@@ -23,7 +23,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = :uglifiera
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -93,13 +93,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_credentials: {
-      bucket: ENV.fetch('barganha-images'),
-      access_key_id: ENV.fetch('AKIAJZC63YZMKIM5MDGA'),
-      secret_access_key: ENV.fetch('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'),
-      s3_region: ENV.fetch(''),
-    }
-  }
+  
 end
