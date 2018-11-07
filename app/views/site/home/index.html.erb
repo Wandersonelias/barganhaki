@@ -6,7 +6,7 @@
             <div class="item-sec">
                 <%= link_to site_product_detail_path(product.id) do %>
                     <div class="img-item ">
-                        <%= image_tag product.image.url(:medium) %>
+                        <%= image_tag product.small_image %>
                         
                         <section class="desc-item">
                             <%= product.title %>

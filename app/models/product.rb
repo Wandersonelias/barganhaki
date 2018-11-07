@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
+  
   include Paperclip::Glue
+
   
   #relacionamentos
   
@@ -14,20 +16,27 @@ class Product < ApplicationRecord
   scope :buscar, ->(q) {where("title LIKE ?","%#{q}%")}
   #validações
 
-  validates_presence_of :title, :description, :pricefor, :priceof, :image, :category
+  validates_presence_of :title, :description, :pricefor, :priceof, :category
 
+  def image=(value) #overload pesquisar
+    if value.is_a?(String)
+      super(value)
+      small_image = value 
+    else
+      img = AwsService.upload(value.tempfile.path, value.original_filename)
+      super(img)
+      self.small_image = AwsService.upload(value.tempfile.path, value.original_filename, "342x225")
+    end
+  end
 
-  #Paperclip
+  def small_image
+    return super if super.present?
+    return "/img/noimage.png"
+  end
+  
+  def image
+    return super if super.present?
+    return "/img/aviao.png"
+  end
 
-  has_attached_file :image,
-  :styles => {
-    :original => [:png],
-    :small    => ['100x100#', :png],
-    :medium   => ['350x197#',  :png],
-    :post     => ['478x243#', :png],
-    :facebook => ['600x600#', :png]
-  }, default_url: "/image/:style/missing.png"
-
-  validates_attachment_content_type :image, content_type: ["image/jpeg", "image/gif", "image/png"]
-  #validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end

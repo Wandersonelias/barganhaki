@@ -12,7 +12,7 @@
                             </div>
                             </div>
 
-                            
+                            <%  @product = current_user.id %>                               
 
                             <div class="row">
                                 <div class="form-group col-xs-2">
@@ -39,7 +39,7 @@
                             <div class="row">
                             <div class="form-group col-xs-4">
                                 <label for="exampleInputFile">Imagem</label><br>
-                                <%= image_tag @product.image.url(:medium), class: "thumbnail" %>
+                                <%= image_tag @product.small_image, class: "thumbnail" %>
                                 <p class="help-block">Example block-level help text here.</p>
                             </div>
                             </div>

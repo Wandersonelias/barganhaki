@@ -50,7 +50,7 @@
                 <label for="exampleInputFile">Imagem</label><br>
                 
                 <% if @product.image.present? %>
-                    <%= image_tag @product.image.url(:medium), class: "thumbnail" %>    
+                    <%= image_tag @product.image, class: "thumbnail" %>    
                 <% end %>
                 
                 
