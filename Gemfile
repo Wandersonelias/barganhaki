@@ -23,14 +23,13 @@ gem 'iugu'
 
 #gem assets bootstrap
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
-# gem responsavel pelo upload de imagens para o sistema
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 # gem amazon para fazer o upload de arquivos para o storage da amazon
 gem 'aws-sdk', '~> 2.3'
+
 #gem mini magick
 gem 'mini_magick'
- 
+
 # gem para autenticação de usuarios
 gem 'devise'
 #gem para o uso do s-admin
