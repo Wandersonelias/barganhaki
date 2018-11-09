@@ -4,7 +4,7 @@
     <div cass="well">
         <h1 class=" text-center"><%= @products.first.category.description %></h1>
     </div>
-    <% @products.each do |product| %
+    <% @products.each do |product| %>
         <div class="item-sec">
         <%= link_to site_product_detail_path(product) do %>
                 <div class="img-item">
