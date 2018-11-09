@@ -55,6 +55,11 @@ body{
     font-size: 18pt;
     font-family: Arial, Helvetica, sans-serif;
 }
+.carrinho-list-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
 /*Cabeçalho do site com logo*/
 .cabecalho{
     background-color: #320055;
@@ -193,6 +198,7 @@ body{
 .lista li{
     display: inline;
     float: left;
+    flex-grow: 1;
     margin-top: 5px;
     margin-right: 20px;
     margin-left: 20px;
@@ -227,14 +233,13 @@ body{
     margin-top: 3px;
 }
 /*Adicionar responsividade*/
-@media only screen and (max-width: 600px) {
+@media(max-width: 520px) {
 
-    .menu-categorias .circle{
-        visibility: hidden;
-        
-    }
-    .menu-categorias ul li{
-        width: 100%;    
+    
+    .menu-categorias{
+        position: absolute;
+        bottom: 0;    
+        background-color: #00AA45;
     }
 
 }
