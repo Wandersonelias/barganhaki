@@ -2,13 +2,13 @@
     
     <div class="container">
     <div cass="well">
-        <h4 class=" text-center"><%= @products.first.category.description %></h4>
+        <h1 class=" text-center"><%= @products.first.category.description %></h1>
     </div>
-    <% @products.each do |product| %>
+    <% @products.each do |product| %
         <div class="item-sec">
         <%= link_to site_product_detail_path(product) do %>
                 <div class="img-item">
-                    <%= image_tag product.image.url(:medium) %>
+                    <%= image_tag product.small_image %>
                     
                     <section class="desc-item">
                         <%= product.title %>
