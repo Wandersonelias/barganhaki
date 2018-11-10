@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   namespace :site do
     namespace :profile do
       get 'dashboard/index'
+      resources :users
     end
   end
   
