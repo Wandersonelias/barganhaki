@@ -10,8 +10,7 @@
     <meta name="author" content="">
 
     <title>Dashboard Administração</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    
     <!-- css -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,6 +19,9 @@
     <script src="/rails.js"></script> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': '.reload' %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     
 </head>
 

@@ -64,14 +64,14 @@ body{
 .cabecalho{
     background-color: #320055;
     width: auto;
-    height: 420px;
+    height: 320px;
 }
 .cabecalho img{
     float: center;
     padding-top: 2%;
     padding-bottom: 1%;
-    height: 300px;
-    width: 400px;
+    height: 210px;
+    width: 300px;
 }
 /*Input search --- begin */
 .cabecalho .campo{
