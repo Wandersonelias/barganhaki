@@ -13,6 +13,7 @@
 //= require bootbox.js
 //= require jquery
 //= require rails-ujs
+//= require rails
 //= require activestorage
 //= require turbolinks
 
