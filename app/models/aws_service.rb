@@ -26,7 +26,7 @@ class AwsService
             image.crop "#{crop}+0+0"
             image.write file
         end
-
+        debugger
         obj = s3.bucket(BUCKET).object("#{Time.now.to_i}-#{name}")
         obj.upload_file(file, acl:'public-read')
         obj.public_url

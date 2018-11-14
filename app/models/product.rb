@@ -23,6 +23,7 @@ class Product < ApplicationRecord
       super(value)
       small_image = value 
     else
+      #debugger
       img = AwsService.upload(value.tempfile.path, value.original_filename)
       super(img)
       self.small_image = AwsService.upload(value.tempfile.path, value.original_filename, "342x225")
