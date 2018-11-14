@@ -51,8 +51,7 @@ Rails.application.routes.draw do
     namespace :profile do
       resources :dashboard, only: [:index]
       resources :products
-      get '/site/profile/users/sign_out'
-      
+     
     end
     resources :items#simulação de rotas de itens
     resources :product_detail, only: [:show]

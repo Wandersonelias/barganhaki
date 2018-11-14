@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :products
 
-
+  
 
   #role: ["comprador", "vendedor"]
   #permissao: ["sim", "nao"]

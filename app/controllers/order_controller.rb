@@ -1,4 +1,8 @@
 class OrderController < ApplicationController
+    def index
+        @order = Order.all
+    end
+    
     def create
         #debugger
         carrinho  = [] #array onde serão armazenados os produtos

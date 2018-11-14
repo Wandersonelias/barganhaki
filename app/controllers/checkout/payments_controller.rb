@@ -98,8 +98,11 @@ class Checkout::PaymentsController < ApplicationController
         end
         #caputura o 
         @order.invoice_id = payment_retorn.invoice_id
-       
+        #envio sms
+
+        
         return true
+        
     end
 
 end

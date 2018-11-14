@@ -61,6 +61,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #gem Sprockets
 gem 'sprockets', '~>3.7.2'
 
+gem 'twilio-ruby', '~> 5.15.2'
+
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do

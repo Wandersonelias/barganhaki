@@ -17,7 +17,7 @@ class AwsService
             #resize image
             image = MiniMagick::Image.open(file)
             image.quality 95
-            image.resize crop
+            image.resize crop#
             image.auto_orient
             image.write file
         
@@ -39,3 +39,10 @@ class AwsService
         end
     end
 end 
+
+#AWS_ACCESS_KEY_ID="AKIAJBIHKW46GWAOBOCQ" AWS_SECRET_ACCESS_KEY="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" S3_BUCKET_NAME ="barganha-images" rails s
+
+#heroku config:set S3_BUCKET_NAME="barganha-images"
+#heroku config:set AWS_ACCESS_KEY_ID="AKIAJBIHKW46GWAOBOCQ"
+#heroku config:set AWS_SECRET_ACCESS_KEY="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"
+#heroku config:set AWS_REGION="us-east-1"
