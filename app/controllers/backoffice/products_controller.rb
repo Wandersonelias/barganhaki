@@ -10,7 +10,7 @@ class Backoffice::ProductsController < ApplicationController
   end
   
   def create
-    debugger
+    
     @product = Product.create(params_product)
     if @product.save
       redirect_to backoffice_products_path, notice: "A categoria #{@product.title}, cadastrada com sucesso!"
