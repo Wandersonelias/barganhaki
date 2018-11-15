@@ -1,16 +1,14 @@
 <h1>Meu carrrinho</h1>
-<div class="container">
-     <div class="row">
-        <table class="table table-hover">
-        <% if @carrinho.empty? %>
+<div class="row">
+    <% if @carrinho.empty? %>
             <div class= "pull-center carrinho-vazio">
                 <div class="alert alert-primary text-center aviso" role="alert"> <%= image_tag("whitecar.png")%></br><p>Seu carrinho está vazio. Continue comprando para encontrar uma oferta!</p></br>
-                <%= link_to "Continuar comprando", root_path, class: "btn btn-success continuar"  %>
+                    <%= link_to "Continuar comprando", root_path, class: "btn btn-success continuar"  %>
 
                 </div>
             </div>
-        <% else %>
-            
+    <% else %>
+        <table class="table table-hover">   
             <thead calss="thead-dark">
                 <tr>
                 
@@ -22,32 +20,27 @@
                 <th scope="col">Ações</th>
                 </tr>
             </thead>
-                <!-- inicio-->
+                <!-- inicio do each de produtos-->
             <tbody>
                 <%  @products.each do |produtos| %>  
-                                <% if @carrinho.include?(produtos.id.to_s) %>
-                                    
-                                            <tr>
-                                                
-                                                <td width="100px"><%= image_tag produtos.image , class: "carrinho-list-image" %></td>
-                                                <td width="250px"><%= produtos.title %></td>
-                                                <td width="120px"><%= produtos.pricefor %></td>
-                                                <td width="150px"><%= produtos.category.description %></td>
-                                                <td width="150px"><%= produtos.user.id %></td>
-                                                <td>
-                                                    <%= link_to "/remover?product_id=#{produtos.id}",class: "btn btn-danger remover" do%>
-                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
-                                                    <% end %>
-                                                </td>
-                                            </tr>
-                                    
-                                <% end  %>
-            </tbody>
+                    <% if @carrinho.include?(produtos.id.to_s) %>
+                        <tr>
+                            <td width="100px"><%= image_tag produtos.image , class: "carrinho-list-image" %></td>
+                            <td width="250px"><%= produtos.title %></td>
+                            <td width="120px"><%= produtos.pricefor %></td>
+                            <td width="150px"><%= produtos.category.description %></td>
+                            <td width="150px"><%= produtos.user.id %></td>
+                            <td>
+                                <%= link_to "/remover?product_id=#{produtos.id}",class: "btn btn-danger remover" do%>
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end  %>
                 <% end %>
+            </tbody>
             
-                    
-            
-            </table> 
+        </table> 
             
             </div><!--Final da div Row-->
 
@@ -58,8 +51,7 @@
                     </div>
                     
             </div> 
-        
-            </div><!--Final da div col-m12-->    
-        <% end %> 
-</div>
+    <% end %> 
+</div><!--Final da div col-m12-->    
+   
              
