@@ -1,3 +1,25 @@
 <div class="rodape">
- 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>CONTATO</h2>
+            </div>
+            <div class="col-md-4">
+                <h2>CATEGORIAS</h2>
+                <ul>
+                    <% @categories.each do |categorias| %>                   
+                    <li>
+                        <%= link_to "#{categorias.description}", site_category_path(categorias), class: "link" %>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>BARGANHAKI</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <%= Time.now %>
+    </div>
 </div>
