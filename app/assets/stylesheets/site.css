@@ -89,10 +89,10 @@ body{
 
 
 /*Menu de opções CSS -- begin*/
-#checkbox{
+#checkbox2{
     display: none;
 }
-#icone{
+#icone2{
     cursor: pointer;
     font-size: 20pt;
     font-family: Arial;
@@ -104,45 +104,47 @@ body{
 
 }
 
-#icone b{
+#icone2 b{
     visibility: hidden;
     
 }
 .menu-opcoes{
     width: 100%;
-    height: 60px;
+    height: 50px;
+    background-color: #320055;
+   
+
 }
 .menu-opcoes ul{
     list-style: none;
-    position: relative;
+    display: flex;
+    text-align: center;
    
 }
 .menu-opcoes ul li{
-    display: inline;
-    float: left;
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-    padding: 5px;
-    
+    width: 25%;
+    transition: background-color 0.2 linar;   
 
 }
 .menu-opcoes li a{
+    padding: 12px;
+    display: block;
     text-decoration: none;
-    font-size: 12pt;
+    text-align: center;
     color: #fff;
-    margin-left: 25px;
+    font-weight: bold;
+    font-size: 14pt;
     
 
 }
 .menu-opcoes li a:hover{
     
-    color: red;
+    background-color:#fff;
+    color: #320055;
+    transform: scale(26%)
     
-    
-
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
     
         #icone{
             width: 100%;
@@ -153,9 +155,12 @@ body{
             visibility: visible;
             text-align: center;
         }
+        .menu-opcoes ul li{
+            width: 100%;
+        }
         
-        #checkbox:checked ~ .menu-opcoes{
-            margin-left: 0;
+        #checkbox2:checked ~ .menu-opcoes{
+            background: #00AA45;
             
         }
         
@@ -166,6 +171,7 @@ body{
         .cat2{
             background: #00AA45;
         }
+        */
 }
 
 
@@ -176,12 +182,13 @@ body{
 .categorias{
     width: auto;
     height: 100px;
-    margin-top: 5px;
+    margin-top:10px;
+    margin-bottom: 2%;
+    
 }
-
 .cat{
     border-bottom: 1px, solid, black;
-    background-color: #fff;
+
 }
 .icon{
     justify-content: flex-start;
@@ -196,10 +203,8 @@ body{
     
 }
 .lista li{
-    display: inline;
+    list-style: none;
     float: left;
-    flex-grow: 1;
-    margin-top: 5px;
     margin-right: 20px;
     margin-left: 20px;
     
@@ -210,22 +215,18 @@ body{
 .circle{
     background-color: #BABABA;
     border-radius: 100%;
-    height: 65px;
-    width: 65px;
+    height: 60px;
+    width: 60px;
     margin: auto;
     
-}
-.icon-tt img{
-    padding : 10%;
-    margin: auto;
-}
-
-.icon-tt img{
     
-    width: 55px;
-    height: 55px;
-    display: flex; 
-    justify-content: flex-start;
+}
+.icon-tt img{    
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 40px;
+    height: 40px;    
 }
 .icon-desc{
     color: rgba(0,0,0,0.8);
@@ -233,28 +234,101 @@ body{
     margin-top: 3px;
 }
 /*Adicionar responsividade*/
-@media(max-width: 520px) {
-
-    
-    .menu-categorias{
-        position: absolute;
-        bottom: 0;    
-        background-color: #00AA45;
+@media only screen and (max-width: 1200px){
+    .categorias{
+        position: fixed;
+        bottom: -2%;
+        width: 100%;
+        height: 70px;
+        background: #BABABA;
+        border-radius: 0 0 7px 7px;
+        
+        
     }
-
+    
+    .categorias .link{
+        display: none;
+    }
+    .icon{
+        justify-content: flex-start;
+        border: 1px solid rgba(0,0,0,0.3);
+        box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5); 
+        background-color: #BABABA;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        
+        
+    }
+    .lista li{
+        list-style: none;
+        display: inline;
+        align-items: center;
+        margin-right: 1px;
+        margin-left: 1px;
+        flex-flow: 1;
+        
+        
+    }
+    .lista li {
+        text-align: center;
+        margin-top: 10px;
+        height: 100%;
+        width: 10%;
+        flex-flow: 1;
+    
+    }
+    .circle{
+        background-color: #BABABA;
+        border-radius: 0%;
+        height: 40px;
+        width: 40px;
+        margin-top: 3px;
+        flex-flow: 1;
+        
+        
+    }
+    .icon-tt img{    
+        margin-top: 15%;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 30px;
+        height: 30px;    
+    }
+    .icon-desc{
+        color: rgba(0,0,0,0.8);
+        text-align: center;
+        margin-top: 3px;
+    }
+    .lista li:hover .circle{
+        background-color: lightgray;
+        
+    }
+    .lista li:hover{
+        background-color: lightgray;
+        transform: scale(2,2);
+    
+    }
 }
 /*Adicionar responsividade*/
 
+
+
+
 /* --------------------Inicio do da exibição dos produtos ---------------------- */
 .item-sec{
-    width: 30%;
+    display: inline-block;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 350px;
     height: 430px;
-    margin-left: 2%;
+    margin-left: 1%;
     margin-top: 4%;
     font-family: "arial", sans-serif;
     box-shadow: 0px 1px 2px 0px gray;
     border-radius: 2px;
-    float: left;
+    
 }
 .img-item img{
     width: 100%;
@@ -326,6 +400,14 @@ body{
     -moz-transition: .5s all;
     transition: .5s all;
 }
+@media(max-width: 800px){
+    .item-sec{
+        
+        width: 100%;
+    }
+
+}
+
 /*---------------Detalhamento dos produtos ------------------------*/
 .img-item-detail img{
     width: 480px;
@@ -370,4 +452,7 @@ body{
     height: 300px;
     margin-top: 50px;
     background-color: #FFF;
+}
+.rodape .copy p{
+    font-size: 15pt;
 }

@@ -1,3 +1,4 @@
+
 <nav class="menu-user">
 
     <% if user_signed_in? %>
@@ -50,37 +51,34 @@
             </div>
         </div>
         <% end %>
-                <input type="checkbox" id="checkbox">
-                <label id="icone" for="checkbox"><b>&#9776; Menu</b></label>
-                <nav class="menu-opcoes">
-                    <div class="container">
-                    <div class="row">
-                    <div class="col-lg-2"></div>
-                        <div class="col-lg-8">
-                            <ul>
-                                <li><%= link_to "INÍCIO", root_path %><li>
-                                <li><%= link_to "INÍCIO", root_path %><li>
-                                <li><%= link_to "INÍCIO", root_path %><li>
-                                <li><%= link_to "INÍCIO", root_path %><li>
-                            </ul>
-                        </div>
-                    <div class="col-lg-2"></div>
-                    </div>
-                    </div>
-                </nav>
+                
 </div> 
+<input type="checkbox" id="checkbox2">
+<label id="icone2" for="checkbox2"><b>&#9776; Menu</b></label>
+<nav class="menu-opcoes">
+<div class="container">
+                <ul>
+                    <li><%= link_to "INÍCIO", root_path %></li>
+                    <li><%= link_to "INÍCIO", root_path %></li>
+                    <li><%= link_to "INÍCIO", root_path %></li>
+                    <li><%= link_to "INÍCIO", root_path %></li>
+                </ul>
+</div>
+</nav>
   <!-- cabecalho fim -->
     
   
-        <nav class="menu-categorias">
+        <nav class="categorias">
             <div class="cat">
                 <div class="container">
                         <ul class="lista">
                             <% @categories.each do |categorias| %>                   
                             <li class="nav-item active text-center">
                                 <div class="circle">
+                                <%= link_to site_category_path(categorias) do %>
                                 <span class="icon-tt text-justify"><%= image_tag categorias.icon %></span></br>
                                 </div>
+                                <% end %>
                                 <%= link_to "#{categorias.description}", site_category_path(categorias), class: "link" %>
                     
                             </li>
