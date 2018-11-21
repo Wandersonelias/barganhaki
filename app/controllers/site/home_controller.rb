@@ -3,7 +3,7 @@ class Site::HomeController < ApplicationController
   
   def index
     @categories = Category.all
-    @products = Product.last_nine
+    @products = Product.paginate(:page => params[:page], :per_page => 15)
     if @carrinho = cookies[:carrinho].present?
       @carrinho = JSON.parse(cookies[:carrinho])
     else
