@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  namespace :backoffice do
+    get 'companies/index'
+  end
   get 'finalizar/compra' , to: "checkout/payments#formapagamento"
   post 'finalizar/compra' , to: "checkout/payments#create"
 
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
+    resources :companies
     #get 'categories/index'
     get 'backoffice', to: 'dashboard#index'
     #rotas para administradores do sistema

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cnpj: MyString
+  address: MyString
+  neighborhood: MyString
+  zipcode: MyString
+  country: MyString
+  longitude: MyString
+  latidude: MyString
+  category: one
+  user: one
+
+two:
+  name: MyString
+  cnpj: MyString
+  address: MyString
+  neighborhood: MyString
+  zipcode: MyString
+  country: MyString
+  longitude: MyString
+  latidude: MyString
+  category: two
+  user: two

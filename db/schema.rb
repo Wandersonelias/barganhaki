@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_034253) do
+ActiveRecord::Schema.define(version: 2018_11_25_014528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(version: 2018_11_07_034253) do
     t.bigint "icon_file_size"
     t.datetime "icon_updated_at"
     t.string "icon"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "cnpj"
+    t.string "address"
+    t.string "neighborhood"
+    t.string "zipcode"
+    t.string "country"
+    t.string "longitude"
+    t.string "latidude"
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "small_image"
+    t.string "image"
+    t.index ["category_id"], name: "index_companies_on_category_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "compras", force: :cascade do |t|
@@ -115,6 +134,8 @@ ActiveRecord::Schema.define(version: 2018_11_07_034253) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "companies", "categories"
+  add_foreign_key "companies", "users"
   add_foreign_key "compras", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"

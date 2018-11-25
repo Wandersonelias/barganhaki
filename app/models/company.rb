@@ -1,23 +1,8 @@
-class Product < ApplicationRecord
-  
- 
-
-  
-  #relacionamentos
-  
+class Company < ApplicationRecord
   belongs_to :category
   belongs_to :user
   
-
-  scope :last_nine, -> {limit(9).order(created_at: :desc)}
-  scope :user_product, -> (user) { where(user: user.id)}
-  scope :last_five, -> {limit(5).order(created_at: :desc)}
-  scope :search, ->(q) {where(:title => params[:q])}
-  scope :buscar, ->(q) {where("title LIKE ?","%#{q}%")}
-  #validações
-
-  validates_presence_of :title, :description, :pricefor, :priceof, :category
-
+# metodos de upload de imagem  
   def image=(value) #overload pesquisar
     if value.is_a?(String)
       super(value)
@@ -32,7 +17,7 @@ class Product < ApplicationRecord
 
   def small_image
     return super if super.present?
-    return "/img/aviao.png"
+    return "/img/noimage.png"
   end
   
   def image
