@@ -4,27 +4,22 @@
     <div cass="well">
         <h1 class=" text-center"><%= @products.first.category.description.upcase %></h1>
     </div>
-    <% @products.each do |product| %>
-        <div class="item-sec">
-        <%= link_to site_product_detail_path(product) do %>
-                <div class="img-item">
-                    <%= image_tag product.small_image %>
-                    
-                    <section class="desc-item">
-                        <%= product.title %>
-                </div>
-        <% end %>
-                    <hr class="traco">
-                </section>
-                <div class="rod-item">
-                    <div class="de">De: R$ <%= product.priceof %></div>
-                    <div class="por">Por: R$ <%= product.pricefor %></div>
-                    
-                    <div class="botao">
-                    <%= button_to 'ADICIONAR AO CARRINHO', compras_path(:product_id => product.id), class: "botao-adc"  %>
-                    </div>
+
+    <% @companies.each do |empresas| %>
+        <%= link_to site_company_path(empresas) do %>
+            <div class="card lojas">
+            <div class="super">
+            
+                <%= image_tag empresas.image, class: "card-img-top img-card" %>
+            </div>
+            
+                <div class="card-body">
+                <h5 class="card-title"><%= empresas.name %></h5>
+                    <%= link_to "#{empresas.category.description}", "#" %>
+                    <p class="card-text"><%= empresas.country %></p>
                     
                 </div>
-        </div>
-        <% end %>        
+            </div>
+        <% end  %>
+    <% end %>       
     </main>

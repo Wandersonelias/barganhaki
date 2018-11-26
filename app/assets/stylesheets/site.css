@@ -457,3 +457,39 @@ body{
 
     font-size: 15pt;
 }
+/*------------------------ CSS das lojas para cadastros ------------------------------------*/
+.lojas{
+    width: 350px;
+    height: 430px;
+    float: left;
+    margin-left: 1%;
+    margin-top: 2%;
+    box-shadow: 0px 1px 2px 0px gray;
+    border-radius: 2px;
+    background-color: #F9F9F9;
+}
+.super{
+    height: 50%;
+    background-image: url("fundolojas.jpg");
+    background-repeat: no-repeat;
+    background-color: #CBCBCB;
+}
+.img-card{    
+    width: 200px;
+    height: 200px;
+    margin-left: 22%;
+    margin-top: 30%;
+    border-radius: 20%;
+    
+}
+.lojas .card-title{
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 25%;
+}
+.card-body{
+    text-align: center;
+    font-size: 14pt;
+}

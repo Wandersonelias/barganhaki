@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_014528) do
+ActiveRecord::Schema.define(version: 2018_11_26_015127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,7 +111,9 @@ ActiveRecord::Schema.define(version: 2018_11_25_014528) do
     t.decimal "pricefor"
     t.string "image"
     t.string "small_image"
+    t.bigint "company_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["company_id"], name: "index_products_on_company_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -141,5 +143,6 @@ ActiveRecord::Schema.define(version: 2018_11_25_014528) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "companies"
   add_foreign_key "products", "users"
 end

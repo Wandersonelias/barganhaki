@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  namespace :site do
+    resources :companies, only: [:show]
+  end
   namespace :backoffice do
     get 'companies/index'
   end

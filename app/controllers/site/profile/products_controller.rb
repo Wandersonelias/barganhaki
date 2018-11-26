@@ -4,7 +4,7 @@ class Site::Profile::ProductsController < ApplicationController
     before_action :set_product , only: [:edit, :update]
     def index
         #@products = Product.where(user_id: current_user.id)
-        @products = Product.user_product(current_user)
+        #@products = Product.user_product(current_user)
         @products = Product.paginate(:page => params[:page], :per_page => 5)
         
     end
@@ -46,7 +46,7 @@ class Site::Profile::ProductsController < ApplicationController
 
 private
     def params_products
-        params.require(:product).permit(:id, :image, :title, :description, :category_id, :priceof, :pricefor, :user)
+        params.require(:product).permit(:id, :image, :title, :description, :category_id, :priceof, :pricefor, :user, :company_id)
     end
 end
 

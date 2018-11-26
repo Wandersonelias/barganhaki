@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
   belongs_to :category
   belongs_to :user
+  has_many :products
   
 # metodos de upload de imagem  
   def image=(value) #overload pesquisar

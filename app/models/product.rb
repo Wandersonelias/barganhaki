@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   
   belongs_to :category
   belongs_to :user
+  belongs_to :company
   
 
   scope :last_nine, -> {limit(9).order(created_at: :desc)}

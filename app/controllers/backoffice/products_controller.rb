@@ -4,6 +4,7 @@ class Backoffice::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    
   end
   def new
     @product = Product.new
@@ -43,7 +44,7 @@ class Backoffice::ProductsController < ApplicationController
   end
 
   def params_product
-    params.require(:product).permit(:id, :title, :description, :priceof, :pricefor, :user_id, :category_id, :image)
+    params.require(:product).permit(:id, :title, :description, :priceof, :pricefor, :user_id, :category_id, :company_id ,:image)
 
   end
 end
