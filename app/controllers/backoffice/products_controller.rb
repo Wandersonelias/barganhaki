@@ -36,8 +36,8 @@ class Backoffice::ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-
-    redirect_to backoffice_products_path
+    redirect_to backoffice_products_path, notice: "Produto removido com sucesso"
+    
   end
 
   private

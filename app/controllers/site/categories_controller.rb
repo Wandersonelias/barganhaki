@@ -8,15 +8,16 @@ class Site::CategoriesController < ApplicationController
         end
         @categories = Category.all
         @categoria = Category.find(params[:id])
-        @products = Product.where(:category_id => @categoria.id)
+
+        #@products = Product.where(:category_id => @categoria.id)
         @companies = Company.where(:category_id => @categoria.id)
 
 
-        if @products.empty?
-            render :errorcat
-        else
-            render :show
-        end
+        #if @products.empty?
+        #    render :errorcat
+        #else
+        #    render :show
+        #end
        
     end
 end
