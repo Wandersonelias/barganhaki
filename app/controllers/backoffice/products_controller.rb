@@ -35,12 +35,16 @@ class Backoffice::ProductsController < ApplicationController
   
   def destroy
     @product = Product.find(params[:id])
+    @product.destroy
+
+    redirect_to backoffice_products_path
   end
 
   private
 
   def set_product
     @product = Product.find(params[:id])
+    
   end
 
   def params_product

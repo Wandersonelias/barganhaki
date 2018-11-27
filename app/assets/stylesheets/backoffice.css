@@ -436,8 +436,12 @@
       border-left-width: 0;
     }
   }
-  td .logo{
+td .logo{
     width: 100px;
     height: 100px;
     border-radius: 50%;
   }
+td .img-product-back{
+  width: 150px;
+  height: 100px;
+}
