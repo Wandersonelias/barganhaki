@@ -3,6 +3,7 @@ class Checkout::PaymentsController < ApplicationController
     layout "profile"
     def index
         @orders = Order.all
+        @company = Company.all
     end
     def formapagamento
         

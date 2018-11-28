@@ -1,21 +1,41 @@
 <div class="container">
-  <ul>
-<% @orders.each do |item| %>
-  <li>
-        <div>Data do pedido: <%= item.created_at %></div>
-        <div>ID do pedido: <%= item.id %></div>
-        <hr>
-        <b>Items</b>
-        <ul>
-            <% item.order_items.each do |orderitem| %>
-            <li><%= orderitem.product.title %> || <%= orderitem.product.pricefor %> %></li>
-            <li>Usuario: <%= item.user_id = current_user.email %>
-            <h2><%= item.invoice_id %></h2>
-            <% end %>
-        </ul>
+<h1>Minhas compras</h1>
+<div class="row">
+<div class="col-md-12">
+<table class="table table-hover">
 
-  </li>
-  
+  <thead calss="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Data da compra</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Preço de venda</th>
+      <th scope="col">Loja</th>
+      <th scope="col">Cupom</th>
+      <th scope="col">Data da compra</th>
+      <th scope="col">Expira</th>
+    </tr>
+  </thead>
+<% @orders.each do |item| %>
+  <% item.order_items.each do |orderitem| %> 
+    <tbody>
+      <tr>
+        <td width="50px"><%= item.id %></td>
+        <td width="100px"><%= image_tag orderitem.product.image, class:"image-compras" %></td>
+        <td width="250px"><%= orderitem.product.title %></td>
+        <td width="120px"><%= orderitem.product.pricefor %></td>
+        <td width="120px"><%= orderitem.product.company.name %></td>
+        <td><%= item.invoice_id %></td>
+        <td width="150px"><%= item.created_at.strftime("%d/%m/%Y as %I:%M%p") %></td>
+        <td width="150px"><%= item.created_at.to_date%></td>
+
+       
+      </tr>
+  </tbody>
 <% end %>
-</ul>
+<% end %>
+</table>
+
 </div>
+</div>
+<!--paginação alinhamento -->

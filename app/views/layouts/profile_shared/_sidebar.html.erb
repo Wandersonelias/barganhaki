@@ -2,18 +2,20 @@
 <label id="icone" for="checkbox"><%= image_tag("icone.png") %> <b>Menu</b></label>
 <div class="menu-lateral">
     <nav>
-        <%= link_to site_profile_products_index_path do %>
+        <%= link_to "" do %> <!-- site_profile_products_index_path -->
              <div class="link">Dashboard</div>   
         <% end %>
-        <%= link_to site_profile_products_index_path do %>
+        <%= link_to "" do %> <!-- site_profile_products_index_path -->
              <div class="link">Produtos</div>   
         <% end %>
-        <%= link_to new_site_profile_product_path do %>
+        <%= link_to  do %> <!-- new_site_profile_product_path -->
              <div class="link">Novo produto</div> 
+        <% end %>
+        <%= link_to checkout_payments_path do %> <!-- new_site_profile_product_path -->
+             <div class="link">Compras</div> 
         <% end %>
         <a href="#"></a>
         <a href="#"><div class="link">Vendas</div></a>
-        <a href="#"><div class="link">Compras</div></a>
-    </nav>
+        
 
 </div>

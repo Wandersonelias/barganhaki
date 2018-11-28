@@ -130,3 +130,8 @@ nav a{
     width: 50px;
     float: right;
 }
+td .image-compras{
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+}
