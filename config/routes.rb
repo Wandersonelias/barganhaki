@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   
   namespace :site do
-    resources :companies, only: [:show]
+    resources :companies, only: [:index, :show]
   end
   namespace :backoffice do
     get 'companies/index'

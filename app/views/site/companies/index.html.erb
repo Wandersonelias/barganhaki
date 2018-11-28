@@ -1,0 +1,25 @@
+<main class="principal">
+    
+    <div class="container">
+    <div cass="well">
+        <h1 class=" text-center"></h1>
+    </div>
+
+    <% @companies.each do |empresas| %>
+        <%= link_to site_company_path(empresas) do %>
+            <div class="card lojas">
+            <div class="super">
+            
+                <%= image_tag empresas.image, class: "card-img-top img-card" %>
+            </div>
+            
+                <div class="card-body">
+                <h5 class="card-title"><%= empresas.name %></h5>
+                    <%= link_to "#{empresas.category.description}", "#" %>
+                    <p class="card-text"><%= empresas.country %></p>
+                    
+                </div>
+            </div>
+        <% end  %>
+    <% end %>       
+    </main>
