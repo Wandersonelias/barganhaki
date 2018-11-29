@@ -12,10 +12,11 @@
       <th scope="col">Preço de venda</th>
       <th scope="col">Loja</th>
       <th scope="col">Cupom</th>
+      <th scope="col">QrCode</th>
       <th scope="col">Data da compra</th>
       <th scope="col">Expira</th>
     </tr>
-  </thead>
+</thead>
 <% @orders.each do |item| %>
   <% item.order_items.each do |orderitem| %> 
     <tbody>
@@ -25,7 +26,8 @@
         <td width="250px"><%= orderitem.product.title %></td>
         <td width="120px"><%= orderitem.product.pricefor %></td>
         <td width="120px"><%= orderitem.product.company.name %></td>
-        <td><%= item.invoice_id %></td>
+        <td><b><%= item.invoice_id %></b></td>
+        <td><%= image_tag @qr %><td>
         <td width="150px"><%= item.created_at.strftime("%d/%m/%Y as %I:%M%p") %></td>
         <td width="150px"><%= item.created_at.to_date%></td>
 
@@ -35,6 +37,7 @@
 <% end %>
 <% end %>
 </table>
+
 
 </div>
 </div>

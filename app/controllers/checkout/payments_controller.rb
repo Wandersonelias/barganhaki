@@ -2,8 +2,12 @@ class Checkout::PaymentsController < ApplicationController
     before_action :authenticate_user! 
     layout "profile"
     def index
+        require 'rqrcode_png'
         @orders = Order.all
         @company = Company.all
+        #@qr = RQRCode::QRCode.new("#{request.original_url}").to_img.resize(200,200).to_data_url
+        @qr = RQRCode::QRCode.new("#{params[:invoice_id]}").to_img.resize(300,300).to_data_url
+        #.to_data_url
     end
     def formapagamento
         

@@ -21,6 +21,9 @@ gem 'will_paginate', '~> 3.1.0'
 #gem da iugu
 gem 'iugu' 
 
+#gem para gerar o qrcode
+gem 'rqrcode_png'
+
 #gem assets bootstrap
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 

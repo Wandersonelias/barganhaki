@@ -470,9 +470,9 @@ body{
 }
 .super{
     height: 50%;
-    background-image: url("fundolojas.jpg");
+    /*background-image: url("fundolojas.jpg");*/
     background-repeat: no-repeat;
-    background-color: #CBCBCB;
+    background-color: #320055;
 }
 .img-card{    
     width: 200px;
