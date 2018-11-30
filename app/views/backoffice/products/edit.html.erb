@@ -14,7 +14,7 @@
                             
                              <div class="row">
                                 <div class="form-group col-xs-4">
-                                    <label for="exampleInputPassword1">Categoria</label></br>
+                                    <label for="exampleInputPassword1">Usuarios</label></br>
                                     <%= f.collection_select :user_id , User.all , :id, :email, {}, { class: "form-control"}%>
                                     
                                     <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
@@ -22,7 +22,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-xs-4">
-                                    <label for="exampleInputPassword1">Categoria</label></br>
+                                    <label for="exampleInputPassword1">Empresas</label></br>
                                     <%= f.collection_select :company_id , Company.all , :id, :name, {}, { class: "form-control"}%>
                                     
                                     <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
