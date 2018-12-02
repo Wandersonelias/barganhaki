@@ -52,7 +52,7 @@
             <div class="row">
             <div class="form-group col-xs-2">
                 <label for="exampleInputPassword1">Situação</label></br>
-                <%= f.select :situation , Product.situations, {}, { class: "form-control"} %>
+                 <%= f.select :situation , options_for_select(Product.situations.map {|k, v| [k.humanize.capitalize, k]}), {}, { class: "form-control"} %>
 
             </div>
             </div>
