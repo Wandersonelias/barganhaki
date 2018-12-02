@@ -21,6 +21,13 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="form-group col-xs-2">
+                                    <label for="exampleInputPassword1">Situação</label></br>
+                                    <%= f.select :situation , options_for_select(Product.situations.keys), {}, { class: "form-control"} %>
+
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="form-group col-xs-4">
                                     <label for="exampleInputPassword1">Empresas</label></br>
                                     <%= f.collection_select :company_id , Company.all , :id, :name, {}, { class: "form-control"}%>

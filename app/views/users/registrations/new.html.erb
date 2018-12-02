@@ -11,8 +11,13 @@
                             <fieldset>
                                 <div class="form-group">
         
+                                     <%= f.email_field :name, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Nome", type: "email" %>
+                                </div>
+                                <div class="form-group">
+        
                                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "E-mail", type: "email" %>
                                 </div>
+                                
                                 <div class="form-group">
                                      <% if @minimum_password_length %>
                                      <em>( <%= @minimum_password_length %> caracteres no mínimo )</em><br />

@@ -1,13 +1,15 @@
 class Product < ApplicationRecord
   
  
-
+  enum situation: {:Disponivel => 0, :Indisponivel => 1, :Promocao => 2}
   
+
   #relacionamentos
   
   belongs_to :category
   belongs_to :user
   belongs_to :company
+  
   
 
   scope :last_nine, -> {limit(9).order(created_at: :desc)}
@@ -15,6 +17,8 @@ class Product < ApplicationRecord
   scope :last_five, -> {limit(5).order(created_at: :desc)}
   scope :search, ->(q) {where(:title => params[:q])}
   scope :buscar, ->(q) {where("title LIKE ?","%#{q}%")}
+  scope :list_products_type, -> {where(situation: 2)}
+
   #validações
 
   validates_presence_of :title, :description, :pricefor, :priceof, :category

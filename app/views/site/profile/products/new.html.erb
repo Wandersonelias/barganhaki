@@ -52,6 +52,13 @@
             </div>
             </div>
             <div class="row">
+            <div class="form-group col-xs-2">
+                <label for="exampleInputPassword1">Situação</label></br>
+                <%= f.select :situation , Product.situations, {}, { class: "form-control"} %>
+
+            </div>
+            </div>
+            <div class="row">
             <div class="form-group col-xs-6">
                 <label for="exampleInputFile">Imagem</label><br>
                 

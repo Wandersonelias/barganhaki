@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :products
 
-  
-
+  enum status: {:Vendedor => 0, :Comprador => 1}
+  scope :salers_actives, -> { where(status: 0)}
   #role: ["comprador", "vendedor"]
   #permissao: ["sim", "nao"]
   # Include default devise modules. Others available are:

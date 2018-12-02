@@ -3,9 +3,9 @@ class Site::Profile::ProductsController < ApplicationController
 
     before_action :set_product , only: [:edit, :update]
     def index
-        #@products = Product.where(user_id: current_user.id)
+        @products = Product.where(user_id: current_user.id).paginate(:page => params[:page], :per_page => 5)
         #@products = Product.user_product(current_user)
-        @products = Product.paginate(:page => params[:page], :per_page => 5)
+        #@products = Product.paginate(:page => params[:page], :per_page => 5)
         
     end
     

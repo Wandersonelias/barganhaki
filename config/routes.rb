@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  namespace :backoffice do
+    get 'users/index'
+  end
   namespace :site do
     resources :companies, only: [:index, :show]
   end
@@ -42,6 +45,7 @@ Rails.application.routes.draw do
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
+    resources :users
     resources :companies
     #get 'categories/index'
     get 'backoffice', to: 'dashboard#index'
