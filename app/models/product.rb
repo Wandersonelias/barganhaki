@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   
  
-  enum situation: {:Disponivel => 0, :Indisponivel => 1, :Promocao => 2}
+  enum situation: {:Disponivel => 0, :Indisponivel => 1, :Oferta => 2}
+  #enum situation: [:Disponivel, :Indisponivel, :Promocao]
   
 
   #relacionamentos
