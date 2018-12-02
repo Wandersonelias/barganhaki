@@ -46,7 +46,7 @@ class Site::Profile::ProductsController < ApplicationController
 
 private
     def params_products
-        params.require(:product).permit(:id, :image, :title, :description, :category_id, :priceof, :pricefor, :user, :company_id)
+        params.require(:product).permit(:id, :image, :title, :description, :category_id, :priceof, :pricefor, :user, :company_id, :situation)
     end
 end
 
