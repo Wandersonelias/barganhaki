@@ -19,7 +19,7 @@
 <div class="container-fluid">
         
   
-  <h1>Cadastro de produtos</h1>
+  <h1>Cadastro de produtos - <%= current_user.company.name %></h1>
     
     <%= form_for [:site, :profile, @product], html: {multpart: true} do |f| %>
 
@@ -52,7 +52,7 @@
             </div>
             </div>
             <div class="row">
-            <div class="form-group col-xs-2">
+            <div class="form-group col-md-4">
                 <label for="exampleInputPassword1">Situação</label></br>
                  <%= f.select :situation , options_for_select(Product.situations.map {|k, v| [k.humanize.capitalize, k]}), {}, { class: "form-control"} %>
 

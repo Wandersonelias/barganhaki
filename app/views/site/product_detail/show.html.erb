@@ -25,6 +25,7 @@
                             <div class="botao-detail">
                             <%= button_to 'ADICIONAR AO CARRINHO', compras_path(:product_id => @product.id), class: "botao-adc-detail"  %>
                             </div>
+                           
                             <input type="hidden" value="<%= @product.company.longitude %>" id="longitude">
                             <input type="hidden" value="<%= @product.company.latidude %>" id="latitude">
                         </div>
@@ -33,7 +34,7 @@
     
         </div>
         <div class="teste">
-        <h1>ONDE RETIRAR SUA OFERTA?</h1>
+        <h1>ONDE RETIRAR SUA OFERTA? - <b><%= link_to "Retornar para loja ", site_company_path(@product.company.id) %></b></h1>
         <div id="map"></div>
             
         </div>

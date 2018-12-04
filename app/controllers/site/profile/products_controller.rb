@@ -15,7 +15,10 @@ class Site::Profile::ProductsController < ApplicationController
 
     def create
         @product = Product.create(params_products)
+        
         @product.user = current_user
+        @product.company_id = current_user.company.id
+        
         if @product.save
             redirect_to site_profile_products_path , notice: "A Produto #{@product.title}, Atualizada com sucesso!"
         else
@@ -46,7 +49,7 @@ class Site::Profile::ProductsController < ApplicationController
 
 private
     def params_products
-        params.require(:product).permit(:id, :image, :title, :description, :category_id, :priceof, :pricefor, :user, :company_id, :situation)
+        params.require(:product).permit(:id, :image, :title, :description, :category_id, :priceof, :pricefor, :user, :situation, :company_id)
     end
 end
 
