@@ -288,6 +288,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rails-assets-bootbox.js!
   rails-assets-bootstrap (= 3.3.7)!
+  rqrcode
   rqrcode_png
   sass-rails (~> 5.0)
   selenium-webdriver

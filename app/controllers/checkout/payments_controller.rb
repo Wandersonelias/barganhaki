@@ -5,9 +5,10 @@ class Checkout::PaymentsController < ApplicationController
         require 'rqrcode_png'
         @orders = Order.all
         @company = Company.all
-        #@qr = RQRCode::QRCode.new("#{request.original_url}").to_img.resize(200,200).to_data_url
-        @qr = RQRCode::QRCode.new("#{params[:invoice_id]}").to_img.resize(300,300).to_data_url
-        #.to_data_url
+      
+      #  qrcode = RQRCode::QRCode.new(item.cupom.to_s)
+			#	qrcode.as_svg(offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 5).html_safe    
+             
     end
     def formapagamento
         
@@ -31,6 +32,7 @@ class Checkout::PaymentsController < ApplicationController
                 item.order = @order # vincula o item que ja esta vinculado a um produto e  vincula com uma order
                 item.value = product.pricefor #o campo valuue recebe o valor do produto
                 item.quantity = 1 # quantidade default e 1
+                item.cupom = item.gera_cupom
                 item.save! #metodo bang
             end
             cookies.delete("carrinho") #quando finalizar deletar do cookies do carrinho

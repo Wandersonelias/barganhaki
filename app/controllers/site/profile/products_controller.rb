@@ -41,10 +41,14 @@ class Site::Profile::ProductsController < ApplicationController
 
     end
 
-    
+    def destroy
+        @product = Product.find(params[:id])
+        @product.destroy
+        redirect_to site_profile_products_path, notice: "O produto #{@product.title}, foi removido com sucesso!"
+    end
     
     def set_product
-            @product = Product.find(params[:id])
+        @product = Product.find(params[:id])
     end
 
 private

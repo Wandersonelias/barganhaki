@@ -23,6 +23,7 @@ gem 'iugu'
 
 #gem para gerar o qrcode
 gem 'rqrcode_png'
+gem 'rqrcode'
 
 #gem assets bootstrap
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
