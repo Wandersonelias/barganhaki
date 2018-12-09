@@ -4,7 +4,7 @@ class Backoffice::UsersController < ApplicationController
   before_action :set_users, only: [:edit, :update]
 
   def index
-    @users = User.salers_actives
+    @users = User.all
   end
   def edit
 
