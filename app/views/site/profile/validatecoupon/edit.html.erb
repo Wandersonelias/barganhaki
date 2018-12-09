@@ -1,0 +1,73 @@
+<h1>Usar voucher</h1>
+
+<div class="container">
+
+   <%= form_for @orderitem, url: {action: "update"}, html: {class: "form-group-valilda"} do |f| %>
+            <div class="row">
+            <div class="form-group col-xs-4">
+                <label for="exampleInputEmail1"><%= @orderitem.product.title %></label>
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-xs-4">
+                <label for="exampleInputEmail1"><%= image_tag @orderitem.product.image %></label>
+            </div>
+            </div>
+            <%= f.text_field :status , value: 1 ,hidden: "true" %>
+            <div class="row">
+                <div class="form-group col-xs-4">
+                    <label for="exampleInputPasswod1">Cupom</label>
+                    <%= f.text_field :cupom, class: "form-control valor", placeholder: "Ex: Pizzaria", :readonly => true%>
+                </div>
+            </div>
+             <div class="row">
+                <div class="form-group col-xs-4">
+                    <label for="exampleInputPasswod1">Quantidade</label>
+                    <%= f.text_field :quantity, class: "form-control valor", placeholder: "Ex: Pizzaria", :readonly => true %>
+                </div>
+            </div>
+            
+
+            <div class="row">
+            <div class="form-group col-md-6">
+                <%= f.submit "Salvar", class: "btn btn-default but" %>       
+            </div>
+            </div>
+    <% end %>
+        
+    
+    </div>
+
+</div>
+
+
+<!--
+<%= form_for @orderitem, url: {action: "update"}, html: {class: "form-group-valilda"} do |f| %>
+
+    <div class="row">
+            <div class="col-md-6">
+                <%= @orderitem.product.title %>
+                <%= image_tag @orderitem.product.image %>
+            </div>
+            <div class="col-md-6">
+            <div class="col-md-4">
+            <label>Cupom:</label>
+            <div class="form-group">
+            <%= f.text_field :cupom, class: "form-control", placeholder: "Le Bistro Restorante", :readonly => true %>
+            </div>
+            </div></br></br></br></br>
+           
+            <div class="col-md-4">
+            <label>Quantidade:</label>
+            <div class="form-group">
+            <%= f.text_field :quantity, class: "form-control", placeholder: "Le Bistro Restorante", :readonly => true%>
+            </div>
+            </div>
+            </div>
+    </div>
+    </br>
+    <div class="pull-right">
+        <%= f.submit "Usar cupom", class: "btn btn-success" %>
+    </div>
+<% end %>
+-->

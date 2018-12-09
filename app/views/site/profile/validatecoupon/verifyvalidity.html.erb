@@ -1,0 +1,71 @@
+
+
+<div class="container ">
+    <div class="verifica-desconto">
+    <%= form_tag site_profile_validatecoupon_verifyvalidity_path, method: :get do %>         
+                <div class="row">
+                    <div class="col-lg-2"></div>    
+                    <div class="col-lg-8">
+                        <div class="input-group col-md-12">
+                        <%= text_field_tag(:q, params[:q], {class: "form-control campo", placeholder: "pesquisar por ..."})%>
+                        <!-- <input type="text" class="form-control campo" placeholder="Search for..."> -->
+                        <span class="input-group-btn">
+                        <!-- <button class="btn btn-default cmd_buscar" type="button">BUSCAR</button> -->
+                            <%= submit_tag "Verificar cupom" , class: "btn btn-success cmd_buscar"  %>
+                        </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-2"></div>
+                
+                </div>
+            
+    <% end %>
+</div>
+
+
+<div class="container">
+<h1>Verificar descontos</h1>
+<div class="row">
+<div class="col-md-12">
+<table class="table table-hover">
+
+  <thead calss="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Data da compra</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Preço de venda</th>
+      <th scope="col">Loja</th>
+      <th scope="col">Cupom</th>
+      <th scope="col">QrCode</th>
+      <th scope="col">Data da compra</th>
+      <th scope="col"></th>
+    </tr>
+</thead>
+<% @orders.each do |item| %>
+  
+    <tbody>
+      <tr>
+        <td width="50px"><%= item.id %></td>
+        <td width="100px"><%= image_tag item.product.image, class:"image-compras" %></td>
+        <td width="250px"><%= item.product.title %></td>
+        <td width="120px"><%= item.product.pricefor %></td>
+        <td width="120px"><%= item.product.company.name %></td>
+        <td width="120px"><%= item.cupom %></td>
+        <td width="150px"><%= item.created_at.strftime("%d/%m/%Y as %I:%M%p") %></td>
+        <td width="150px"><%= item.created_at.to_date%></td>
+        <td width="150px">
+        <%= link_to edit_site_profile_validatecoupon_path(item.id), class: "btn btn-success link-botao-validar" do  %>
+            VALIDAR CUPOM <i class="glyphicon glyphicon-ok"></i>
+        <% end %>
+        </td>
+        
+       
+      </tr>
+  </tbody>
+<% end %>
+</table>
+
+
+</div>
+</div>

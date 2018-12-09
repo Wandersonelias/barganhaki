@@ -1,9 +1,14 @@
 class OrderItem < ApplicationRecord
+
+
   belongs_to :order
   belongs_to :product
 
 
-
+  #scope :validar, ->(q) {where("cupom LIKE ?","%#{q}%")}
+  scope :validar, ->(q) {where("cupom LIKE ?","#{q}")}
+  
+  
 
 
 #Metodo gerar numeração para cupom desconto

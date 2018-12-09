@@ -16,7 +16,6 @@
           <% end %>
         <% end %>
         <!-- fim -->
-
         <!-- verificação de o usuario e vendedor -->
         <% if current_user.status == "Vendedor" %>
           <%= link_to new_site_profile_product_path do %> 
@@ -27,8 +26,17 @@
                <div class="link">Novo produto</div> 
           <% end %>
         <% end  %>
+         <% if current_user.status == "Vendedor" %>
+          <%= link_to site_profile_validatecoupon_verifyvalidity_path do %> 
+               <div class="link">Validar cupom</div>   
+          <% end %>
+        <% else %>
+          <%= link_to "#", hidden: "hidden" do %>
+               <div class="link">Produtos</div>   
+          <% end %>
+        <% end %>
+        <!-- fim -->
         <!-- end -->
-        
         <%= link_to checkout_payments_path do %> <!-- new_site_profile_product_path -->
              <div class="link">Compras</div> 
         <% end %>

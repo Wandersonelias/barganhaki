@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
   
+  namespace :site do
+    namespace :profile do
+      get 'validatecoupon/verifyvalidity'
+    end
+  end
   namespace :backoffice do
     get 'users/index'
   end
@@ -62,6 +67,8 @@ Rails.application.routes.draw do
     namespace :profile do
       resources :dashboard, only: [:index]
       resources :products
+      get 'validatecoupon', to: 'validatecoupon#verifyvalidity'
+      resources :validatecoupon, only: [:edit,:update]
      
     end
     resources :items#simulação de rotas de itens
