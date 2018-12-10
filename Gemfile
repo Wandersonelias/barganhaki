@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 #Gem WillPaginate
 gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 #gem da iugu
 gem 'iugu' 
 

@@ -1,5 +1,6 @@
 class Checkout::PaymentsController < ApplicationController
     before_action :authenticate_user! 
+    
     layout "profile"
     def index
         require 'rqrcode_png'
@@ -10,6 +11,16 @@ class Checkout::PaymentsController < ApplicationController
 			#	qrcode.as_svg(offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 5).html_safe    
              
     end
+    def listar
+      require 'rqrcode_png'
+      @orders = Order.all
+      @company = Company.all
+    
+      #  qrcode = RQRCode::QRCode.new(item.cupom.to_s)
+      #	qrcode.as_svg(offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 5).html_safe    
+           
+    end
+    
     def formapagamento
         
     end

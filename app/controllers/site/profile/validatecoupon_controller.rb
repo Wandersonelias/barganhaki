@@ -3,21 +3,17 @@ class Site::Profile::ValidatecouponController < ApplicationController
   before_action :set_orderitem, only: [:edit, :update]
 
   def verifyvalidity
-    @orders = OrderItem.validar(params[:q])
-    if @orders.present?  
-      @orders = OrderItem.where(:status => 0)
-    else
-        render :invalidvoucher
-    end
-
+     @orders = OrderItem.validar(params[:q]).verificar
+     
   end
+
   def edit
 
   end
 
   def update
     if @orderitem.update(params_orderItem)  
-        render :confirmeduse, notice: "Vouccher validado com sucesso" 
+        render :confirmeduse, notice: "Voucher validado com sucesso" 
     else
         puts "Não deu"
     end

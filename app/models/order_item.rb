@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
 
   #scope :validar, ->(q) {where("cupom LIKE ?","%#{q}%")}
   scope :validar, ->(q) {where("cupom LIKE ?","#{q}")}
-  
+  scope :verificar, -> {where(:status => 0)}
   
 
 

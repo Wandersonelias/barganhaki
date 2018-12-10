@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post 'finalizar/compra' , to: "checkout/payments#create"
 
 
+
   namespace :backoffice do
     resources :products
   end
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   
   namespace :checkout do
     resources :payments, only: [:create, :index]
+    get 'payments/listar'
   end
 
   namespace :site do

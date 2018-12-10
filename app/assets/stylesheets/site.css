@@ -87,7 +87,28 @@ body{
 
 }
 
-
+/* menu novo*/
+.menu-navegacao{
+    background-color:  #320055;
+    border-radius: 0px;
+}
+.menu-navegacao a{
+    color: #FFF;
+    font-size: 16pt;
+    margin-left: 20px;
+    
+}
+.menu-navegacao button{
+    color: #FFF;
+    font-size: 25pt;
+    border-radius: 5px;
+    border: 1px solid white;
+    
+    
+}
+.menu-navegacao button i{
+    padding: 5px;
+}
 /*Menu de opções CSS -- begin*/
 #checkbox2{
     display: none;
@@ -127,7 +148,7 @@ body{
 
 }
 .menu-opcoes li a{
-    padding: 12px;
+    padding: 20px;
     display: block;
     text-decoration: none;
     text-align: center;
@@ -240,7 +261,7 @@ body{
         bottom: -2%;
         width: 100%;
         height: 70px;
-        background: #BABABA;
+        background: #81C234;
         border-radius: 0 0 7px 7px;
         
         
@@ -253,7 +274,7 @@ body{
         justify-content: flex-start;
         border: 1px solid rgba(0,0,0,0.3);
         box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5); 
-        background-color: #BABABA;
+        background-color: #81C234;
         border-radius: 50%;
         width: 30px;
         height: 30px;
@@ -280,7 +301,7 @@ body{
     
     }
     .circle{
-        background-color: #BABABA;
+        background-color: #81C234;
         border-radius: 0%;
         height: 40px;
         width: 40px;
@@ -404,6 +425,7 @@ body{
     .item-sec{
         
         width: 100%;
+        margin: auto;
     }
 
 }

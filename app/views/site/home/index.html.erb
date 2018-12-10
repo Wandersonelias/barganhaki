@@ -36,8 +36,12 @@
         <% end %>
         
 
-    
-     <%= will_paginate @products %>
+<div class="row">
+    <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+        </div>
+    <div class="col-md-4"></div>
+</div>
 
-    
     

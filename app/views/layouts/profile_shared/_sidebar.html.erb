@@ -40,8 +40,10 @@
         <%= link_to checkout_payments_path do %> <!-- new_site_profile_product_path -->
              <div class="link">Compras</div> 
         <% end %>
-        <a href="#"></a>
-        <a href="#"><div class="link">Vendas</div></a>
+        <%= link_to checkout_payments_listar_path do %>
+               <div class="link">Vendas</div>
+        <% end  %>
+
         <%= link_to "/" do %> <!-- new_site_profile_product_path -->
              <div class="link">Retornar</div> 
         <% end %>

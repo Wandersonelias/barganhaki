@@ -1,3 +1,7 @@
+/*
+*= require bootstrap
+
+*/
 *{
     padding: 0;
     margin: 0;
@@ -14,6 +18,29 @@ body{
     width: 100%;
 }
 */
+/* menu user */
+.menu-user{
+    background-color: #320055;
+    padding: 5px;
+    width: 100%;
+    height: 60px;
+}
+.menu-user a{
+    background-color: transparent;
+    border: 2px solid #FFF;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.menu-user b{
+    color: #FFF;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    
+}
+/*---- fim ----*/
 #checkbox{
     display: none;
 }
