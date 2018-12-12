@@ -1,6 +1,6 @@
 class OrderController < ApplicationController
     def index
-        @order = Order.all
+        @order = Order.user_order(current_user)
     end
     
     def create

@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Minhas vendas</h1>
+<h1>Minhas vendas - Total de vendas: <%= @orders.count %></h1>
 <div class="row">
 <div class="col-md-12">
 <table class="table table-hover">
@@ -32,7 +32,7 @@
         <td width="150px"><%= item.created_at.strftime("%d/%m/%Y as %I:%M%p") %></td>
         <td width="150px"><%= item.created_at.to_date%></td>
 
-       
+        
       </tr>
   </tbody>
 <% end %>
