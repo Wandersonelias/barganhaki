@@ -84,7 +84,7 @@ Rails.application.routes.draw do
   devise_for :users 
   
   #rota default - para entrada no sistema
-  #get 'site/home#index'
+  resources :home
   #root 'site/home#index'
   root 'lancamento#new'
 
