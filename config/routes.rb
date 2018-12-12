@@ -84,9 +84,9 @@ Rails.application.routes.draw do
   devise_for :users 
   
   #rota default - para entrada no sistema
-  resources :home
-  #root 'site/home#index'
-  root 'lancamento#new'
+  #resources :home
+  root 'site/home#index'
+  #root 'lancamento#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
