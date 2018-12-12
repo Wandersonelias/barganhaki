@@ -51,8 +51,9 @@ $.rails.allowAction = function(element) {
 
 
 var pagamento = {};
-pagamento.cartao = function(){
-  Iugu.setAccountID("7BF84F636188451EA2CE81F1FCA69DE5");
+pagamento.cartao = function(event){
+  event.preventDefault();
+  Iugu.setAccountID("B0505CF3B7824869AE34E6BD785F2D00");
   Iugu.setTestMode(true); 
   Iugu.setup();
 

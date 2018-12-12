@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :lancamento
   namespace :site do
     namespace :profile do
       get 'validatecoupon/verifyvalidity'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   namespace :backoffice do
     get 'companies/index'
   end
-  get 'finalizar/compra' , to: "checkout/payments#formapagamento"
+  post 'forma/pagamento' , to: "checkout/payments#formapagamento"
   post 'finalizar/compra' , to: "checkout/payments#create"
 
 
@@ -83,7 +84,9 @@ Rails.application.routes.draw do
   devise_for :users 
   
   #rota default - para entrada no sistema
-  root 'site/home#index'
+  #get 'site/home#index'
+  #root 'site/home#index'
+  root 'lancamento#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

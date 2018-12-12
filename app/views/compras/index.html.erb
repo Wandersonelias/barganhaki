@@ -1,4 +1,5 @@
 <h1>Meu carrrinho</h1>
+<form action="forma/pagamento" method="post">
 <div class="row">
     <% if @carrinho.empty? %>
             <div class= "pull-center carrinho-vazio">
@@ -8,6 +9,7 @@
                 </div>
             </div>
     <% else %>
+    
         <table class="table table-hover">   
             <thead calss="thead-dark">
                 <tr>
@@ -22,21 +24,23 @@
             </thead>
                 <!-- inicio do each de produtos-->
             <tbody>
-                <%  @products.each do |produtos| %>  
-                    <% if @carrinho.include?(produtos.id.to_s) %>
-                        <tr>
-                            <td width="100px"><%= image_tag produtos.image , class: "carrinho-list-image" %></td>
-                            <td width="250px"><%= produtos.title %></td>
-                            <td width="120px"><%= produtos.pricefor %></td>
-                            <td width="150px"><%= produtos.category.description %></td>
-                            <td width="150px"><%= produtos.user.id %></td>
-                            <td>
-                                <%= link_to "/remover?product_id=#{produtos.id}",class: "btn btn-danger remover" do%>
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
-                                <% end %>
-                            </td>
-                        </tr>
-                    <% end  %>
+                <%  @carrinho.each do |produto_hash| %>
+                    <% produtos = Product.find(produto_hash["id"])  %>  
+                    <tr>
+                        <td width="100px"><%= image_tag produtos.image , class: "carrinho-list-image" %></td>
+                        <td width="250px"><%= produtos.title %></td>
+                        <td width="120px"><%= produtos.pricefor %></td>
+                        <td width="150px"><%= produtos.category.description %></td>
+                        <td width="150px">
+                            <input type="text" name="quantidade[]" style="width:40px" placeholder="Digite a quantidade" value="<%= produto_hash["quantidade"] || 1 %>">
+                            <input type="hidden" name="produto_ids[]" value="<%= produtos.id %>">
+                        </td>
+                        <td>
+                            <%= link_to "/remover?product_id=#{produtos.id}",class: "btn btn-danger remover" do%>
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
+                            <% end %>
+                        </td>
+                    </tr>
                 <% end %>
             </tbody>
             
@@ -47,11 +51,13 @@
                 <div class="row botoes-row">
                     <div class="pull-right"> 
                         <%= link_to "Continuar comprando", root_path, class: "btn btn-success continuar"  %>
-                        <%= link_to "Finalizar compra", 'finalizar/compra', class: "btn btn-danger finalizar"  %>
+                        <input type="submit" value="Finalizar Compra" class= "btn btn-danger finalizar">
+                        
                     </div>
                     
             </div> 
-    <% end %> 
+    <% end %>
 </div><!--Final da div col-m12-->    
+</form>
    
              

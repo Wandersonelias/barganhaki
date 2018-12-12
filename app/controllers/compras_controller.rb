@@ -3,10 +3,9 @@ class ComprasController < ApplicationController
     layout "site"    
     def index
         @categories = Category.all
-        @products = Product.all
         if @carrinho = cookies[:carrinho].present?
             @carrinho = JSON.parse(cookies[:carrinho])
-          else
+        else
             @carrinho = []
         end
     end
@@ -16,8 +15,8 @@ class ComprasController < ApplicationController
         carrinho  = [] #array onde serão armazenados os produtos
         carrinho = JSON.parse(cookies[:carrinho]) if cookies[:carrinho].present? #verifica se a algun produtos
         
-        unless carrinho.include?(params[:product_id])
-            carrinho << params[:product_id] #array de produtos
+        unless carrinho.map{|c| c["id"]}.include?(params[:product_id])
+            carrinho << {"id": params[:product_id], quantidade: 1 } #array de produtos
         end
 
         cookies[:carrinho] = { value: carrinho.to_json, expires: 1.days.from_now, httponly: true }
@@ -30,9 +29,13 @@ class ComprasController < ApplicationController
     
     def remove_item
         if cookies[:carrinho].present?
-        carrinho = JSON.parse(cookies[:carrinho])
-        carrinho.delete(params[:product_id])
-        cookies[:carrinho] = { value: carrinho.to_json, expires: 1.days.from_now, httponly: true }
+            carrinho_padrao = JSON.parse(cookies[:carrinho])
+            carrinho = []
+            carrinho_padrao.each do |item|
+                carrinho << item if item["id"] != params[:product_id]
+            end
+
+            cookies[:carrinho] = { value: carrinho.to_json, expires: 1.days.from_now, httponly: true }
         end
         redirect_to "/compras"
     end

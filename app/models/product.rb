@@ -18,8 +18,9 @@ class Product < ApplicationRecord
   scope :last_five, -> {limit(5).order(created_at: :desc)}
   scope :search, ->(q) {where(:title => params[:q])}
   scope :buscar, ->(q) {where("title LIKE ?","%#{q}%")}
-  scope :list_products_type, -> {where(situation: 2)}
-
+  scope :list_products_type, -> {where(situation: 2)} 
+   
+  
   #validações
 
   validates_presence_of :title, :description, :pricefor, :priceof, :category
@@ -45,5 +46,6 @@ class Product < ApplicationRecord
     return super if super.present?
     return "/img/aviao.png"
   end
+  
 
 end

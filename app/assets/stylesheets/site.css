@@ -426,6 +426,7 @@ body{
         
         width: 100%;
         margin: auto;
+        margin-bottom: 4%;
     }
 
 }
@@ -514,4 +515,13 @@ body{
 .card-body{
     text-align: center;
     font-size: 14pt;
+}
+@media(max-width: 800px){
+    .lojas{
+        
+        width: 100%;
+        margin: auto;
+        margin-bottom: 4%;
+    }
+
 }

@@ -22,7 +22,7 @@
                         </div>
                         -->
                         <div class="botao">
-                        <% if @carrinho.include?(product.id.to_s) %>
+                        <% if @carrinho.map{|c| c["id"]}.include?(product.id.to_s) %>
                             <%= link_to 'REMOVER DO CARRINHO', "/remover_carrinho?product_id=#{product.id}",class: "botao-rmv" %>                  
                         <% else %>
                             <%= button_to 'ADICIONAR NO CARRIHO', compras_path(:product_id => product.id), class: "botao-adc"  %>

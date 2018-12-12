@@ -1,8 +1,6 @@
 <script src="https://js.iugu.com/v2"></script>
 <div class="container">
 <h1>Pagamento do pedido</h1>
-
-<form>
     <div class="row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">Nome</label>
@@ -28,7 +26,7 @@
     <div class="form-row col-md-6">
         <div class="form-group col-md-6">
           <label for="inputNameCard">Numero do Cartão:</label>
-          <input type="text" class="form-control" id="numeroCartao" placeholder="0000000000000000">
+          <input type="text" class="form-control" id="numeroCartao" value="4111111111111111"placeholder="0000000000000000">
         </div>
     </div>
   </div>
@@ -37,7 +35,7 @@
   <div class="form-row col-md-6">
       <div class="form-group col-md-6">
         <label for="inputNameCard">Nome do Cartão:</label>
-        <input type="text" class="form-control" id="nomeCartao" placeholder="Maria M Santos">
+        <input type="text" class="form-control" id="nomeCartao" value="Maria Santos" placeholder="Maria M Santos">
       </div>
   </div>
   </div>
@@ -46,8 +44,8 @@
     <div class="form-group col-md-3">
       <label for="inputState">Mês</label>
       <select id="mesCartao" class="form-control">
-        <option selected>Mês ▾</option>
-            <option value="1">01</option>
+        <option>Mês ▾</option>
+            <option selected value="1">01</option>
             <option value="2">02</option>
             <option value="3">03</option>
             <option value="4">04</option>
@@ -64,11 +62,11 @@
      <div class="form-group col-md-3">
       <label for="inputState">Ano</label>
       <select id="anoCartao" class="form-control">
-             <option selected>Ano ▾</option>
+             <option >Ano ▾</option>
              <option value="2018">2018</option>
              <option value="2019">2019</option>
              <option value="2020">2020</option>
-             <option value="2021">2021</option>
+             <option selected value="2021">2021</option>
              <option value="2022">2022</option>
              <option value="2023">2023</option>
              <option value="2024">2024</option>
@@ -83,7 +81,7 @@
       <div class="form-row col-md-6">
       <div class="form-group col-md-6 cvv">
         <label for="inputCity">CVV</label>
-        <input type="text" class="form-control" id="cvvCartao" placeholder="000">
+        <input type="text" class="form-control" id="cvvCartao" value="123" placeholder="000">
         <%= image_tag("cvv.png") %>
       </div>
       </div>
@@ -91,9 +89,8 @@
   <div class="row">
       <div class="form-row col-md-6">
       <div class="form-group col-md-3">
-      <a href="" onclick="pagamento.cartao()" class="btn btn-primary">Finalizar pagamento</a>
+      <a href="#" onclick="pagamento.cartao(event)" class="btn btn-primary">Finalizar pagamento</a>
       </div>
       </div>
   </div>
-</form>
 </div>

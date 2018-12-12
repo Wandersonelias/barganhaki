@@ -1,5 +1,7 @@
 class Checkout::PaymentsController < ApplicationController
     before_action :authenticate_user! 
+    skip_before_action :verify_authenticity_token, only: [:formapagamento]
+    
     
     layout "profile"
     def index
@@ -22,8 +24,19 @@ class Checkout::PaymentsController < ApplicationController
     end
     
     def formapagamento
-        
+      carrinho = JSON.parse(cookies["carrinho"]) #recebe o cookie de "Carrinho"
+      carrinho.each do |product| #percorre o array carrinho pegando o id dos produtos
+        params["produto_ids"].each_with_index do |id, index|
+          if product["id"] == id
+            product["quantidade"] = params["quantidade"][index]
+            break
+          end
+        end
+      end
+
+      cookies[:carrinho] = { value: carrinho.to_json, expires: 1.days.from_now, httponly: true }
     end
+
     def create
         unless user_signed_in? 
             redirect_to "/users/sign_in"
@@ -36,13 +49,14 @@ class Checkout::PaymentsController < ApplicationController
             @order.user_id = current_user.id # faz ajuncao entre a order e o usuario atual
             @order.save! #salva a ordem
             dados = JSON.parse(cookies["carrinho"]) #recebe o cookie de "Carrinho"
-            dados.each do |product_id| #percorre o array carrinho pegando o id dos produtos
-                product = Product.find(product_id) #seta o produto de axirdo com o seu id
+            dados.each do |product_hash| #percorre o array carrinho pegando o id dos produtos
+              debugger
+                product = Product.find(product_hash["id"]) #seta o produto de axirdo com o seu id
                 item = OrderItem.new #Cria um novo item
                 item.product = product #vincula um item a um produto
                 item.order = @order # vincula o item que ja esta vinculado a um produto e  vincula com uma order
                 item.value = product.pricefor #o campo valuue recebe o valor do produto
-                item.quantity = 1 # quantidade default e 1
+                item.quantity = product_hash["quantidade"] # quantidade default e 1
                 item.cupom = item.gera_cupom
                 item.save! #metodo bang
             end
@@ -56,7 +70,7 @@ class Checkout::PaymentsController < ApplicationController
         
         token = params[:token_id]
 
-        Iugu.api_key = "fbb01254c79ddaecc9ad696535a1f241"
+        Iugu.api_key = "a47a7e30aa6a12e8603a7d5452fe5e27"
         payment_method = nil
         
         customer = Iugu::Customer.create({
@@ -72,15 +86,15 @@ class Checkout::PaymentsController < ApplicationController
 
         itens = []
         dados = JSON.parse(cookies["carrinho"]) #recebe o cookie de "Carrinho"
-        dados.each do |product_id| #percorre o array carrinho pegando o id dos produtos
-          product = Product.find(product_id) 
+        dados.each do |product_hash| #percorre o array carrinho pegando o id dos produtos
+          product = Product.find(product_hash["id"]) 
           valor = product.pricefor
           valor_centavos = (valor * 100).to_i
           itens << [
             {
               "description" => product.description,
-              "quantity" => "1",
-              "price_cents"=> valor_centavos
+              "quantity" => product_hash["quantidade"],
+              "price_cents" => valor_centavos
             }
           ]
         end
