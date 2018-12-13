@@ -12,8 +12,8 @@
       <th scope="col">Valor</th>
       <th scope="col">Comprador</th>
       <th scope="col">Cupom</th>
-      <th scope="col">QrCode</th>
-      <th scope="col">Data da compra</th>
+      <th scope="col">Status</th>
+      <th scope="col">Qtd</th>
       <th scope="col">Expira</th>
     </tr>
 </thead>
@@ -28,7 +28,7 @@
         <td width="120px"><%= orderitem.product.user.name %></td>
         <td width="120px"><%= orderitem.cupom %></td>
         <td width="120px"><%= orderitem.status %></td>
-        <td><b><%= item.invoice_id %></b></td>
+        <td width="120px"><%= orderitem.quantity %></td>
         <td width="150px"><%= item.created_at.strftime("%d/%m/%Y as %I:%M%p") %></td>
         <td width="150px"><%= item.created_at.to_date%></td>
 

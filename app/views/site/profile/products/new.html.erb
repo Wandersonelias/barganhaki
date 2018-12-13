@@ -21,7 +21,7 @@
   
   <h1>Cadastro de produtos</h1>
     
-    <%= form_for @product, html: {multpart: true} do |f| %>
+    <%= form_for [:site, :profile, @product], html: {multpart: true} do |f| %>
 
             <div class="row">
                 <div class="form-group col-xs-6">
