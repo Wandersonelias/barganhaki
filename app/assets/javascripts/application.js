@@ -47,7 +47,16 @@ $.rails.allowAction = function(element) {
   
     return false;
   }
-
+  //botoes
+  
+  function mais(){                
+    var cont = document.getElementById("quantidade[]")
+    cont.value = parseInt(cont.value) + 1
+  }
+  function menos(){
+    var cont = document.getElementById("quantidade[]")
+    cont.value = parseInt(cont.value) - 1
+  }
 
 
 var pagamento = {};

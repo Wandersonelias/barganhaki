@@ -50,7 +50,6 @@ class Checkout::PaymentsController < ApplicationController
             @order.save! #salva a ordem
             dados = JSON.parse(cookies["carrinho"]) #recebe o cookie de "Carrinho"
             dados.each do |product_hash| #percorre o array carrinho pegando o id dos produtos
-              debugger
                 product = Product.find(product_hash["id"]) #seta o produto de axirdo com o seu id
                 item = OrderItem.new #Cria um novo item
                 item.product = product #vincula um item a um produto

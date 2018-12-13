@@ -1,3 +1,6 @@
+<script>
+    
+</script>
 <h1>Meu carrrinho</h1>
 <form action="forma/pagamento" method="post">
 <div class="row">
@@ -32,8 +35,12 @@
                         <td width="120px"><%= produtos.pricefor %></td>
                         <td width="150px"><%= produtos.category.description %></td>
                         <td width="150px">
+                            <!--<input type="button" value="+" onclick="mais()">-->
                             <input type="text" name="quantidade[]" style="width:40px" placeholder="Digite a quantidade" value="<%= produto_hash["quantidade"] || 1 %>">
                             <input type="hidden" name="produto_ids[]" value="<%= produtos.id %>">
+                            <!--<input type="button" value="-" onclick="menos()"> -->
+                            
+                            
                         </td>
                         <td>
                             <%= link_to "/remover?product_id=#{produtos.id}",class: "btn btn-danger remover" do%>
