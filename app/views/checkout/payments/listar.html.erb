@@ -25,7 +25,7 @@
         <td width="100px"><%= image_tag orderitem.product.image, class:"image-compras" %></td>
         <td width="250px"><%= orderitem.product.title %></td>
         <td width="120px"><%= orderitem.product.pricefor %></td>
-        <td width="120px"><%= orderitem.product.user.name %></td>
+        <td width="120px"><%= orderitem.product.user.name if current_user.status == "Comprador" %></td>
         <td width="120px"><%= orderitem.cupom %></td>
         <td width="120px"><%= orderitem.status %></td>
         <td width="120px"><%= orderitem.quantity %></td>

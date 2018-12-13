@@ -32,7 +32,7 @@ class Backoffice::UsersController < ApplicationController
   end
 
   def params_users
-    params.require(:user).permit(:id, :name, :email, :password, :password_confirmation, :status)
+    params.require(:user).permit(:id, :name, :email, :password, :password_confirmation, :status, :company_id)
   end
 
 

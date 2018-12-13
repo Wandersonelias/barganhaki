@@ -46,10 +46,15 @@
                                             <div class="form-group">
                                                 <%= f.text_field :name, class: "form-control", placeholder: "Nome"%>      
                                             </div>
+                                            
                                             <label>Tipo:</label>
                                             <div class="form-group">
                                                  <%= f.select :status , options_for_select(User.statuses.map {|k, v| [k.humanize.capitalize, k]}), {}, { class: "form-control"} %>      
                                             </div>
+                                            <label>Empresa</label></br>
+                                            <div class="form-group">
+                                            <%= f.collection_select :company_id , Company.all , :id, :name, {}, { class: "form-control"} %>
+                                            </div>                      
                                             <label>Senha:</label>
                                             <div class="form-group">
                                                 <%= f.password_field :password, class: "form-control", placeholder: "Confirmar Senha"%>      

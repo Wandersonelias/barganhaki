@@ -1,5 +1,6 @@
 class OrderItem < ApplicationRecord
 
+  enum status: ["Valido", "Invalido"]
 
   belongs_to :order
   belongs_to :product

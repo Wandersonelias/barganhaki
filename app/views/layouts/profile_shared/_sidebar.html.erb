@@ -37,13 +37,21 @@
         <% end %>
         <!-- fim -->
         <!-- end -->
-        <%= link_to checkout_payments_path do %> <!-- new_site_profile_product_path -->
-             <div class="link">Compras</div> 
-        <% end %>
-        <%= link_to checkout_payments_listar_path do %>
-               <div class="link">Vendas</div>
-        <% end  %>
+         <% if current_user.status == "Comprador" %>
+               <%= link_to checkout_payments_path do %> <!-- new_site_profile_product_path -->
+                         <div class="link">Compras</div> 
+               <% end %>
+         <% else %>
+               <%= link_to "#", hidden: "hidden" do %> <!-- new_site_profile_product_path -->
+                    <div class="link">Compras</div> 
+               <% end %>
+          <% end %>
 
+         <% if current_user.status == "Vendedor" %>
+               <%= link_to checkout_payments_listar_path do %>
+                         <div class="link">Vendas</div>
+               <% end  %>
+         <% end %>
         <%= link_to "/" do %> <!-- new_site_profile_product_path -->
              <div class="link">Retornar</div> 
         <% end %>

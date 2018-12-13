@@ -15,10 +15,8 @@ class Site::Profile::ProductsController < ApplicationController
 
     def create
         @product = Product.create(params_products)
-        
         @product.user = current_user
-        @product.company_id = current_user.company.id
-        
+        @product.company_id = current_user.company_id 
         if @product.save
             redirect_to site_profile_products_path , notice: "A Produto #{@product.title}, Atualizada com sucesso!"
         else
