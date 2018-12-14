@@ -6,6 +6,7 @@
         
     </div>
         <% @products.each do |product| %>
+        <% if product.situation != "Indisponivel" %>
         <div class="item-sec">
         <%= link_to site_product_detail_path(product) do %>
                 <div class="img-item">
@@ -13,6 +14,7 @@
                     
                     <section class="desc-item">
                         <%= product.title %>
+                        <%= product.situation %>
                 </div>
         <% end %>
                     <hr class="traco">
@@ -27,5 +29,6 @@
                     
                 </div>
         </div>
+        <% end %>
         <% end %> 
 </main>

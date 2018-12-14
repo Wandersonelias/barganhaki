@@ -19,6 +19,8 @@ class Site::CompaniesController < ApplicationController
     #--------------------------------------------------
     @company = Company.find(params[:id])
     @products = Product.where(:company_id => @company.id)
+      
+    
     
        
     
