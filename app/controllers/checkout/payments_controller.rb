@@ -69,7 +69,7 @@ class Checkout::PaymentsController < ApplicationController
         
         token = params[:token_id]
 
-        Iugu.api_key = "f17186967298757c97c71e4b7483a505"
+        Iugu.api_key = "a47a7e30aa6a12e8603a7d5452fe5e27"
         payment_method = nil
         
         customer = Iugu::Customer.create({

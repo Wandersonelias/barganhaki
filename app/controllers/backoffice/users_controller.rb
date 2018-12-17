@@ -9,6 +9,7 @@ class Backoffice::UsersController < ApplicationController
   def edit
 
   end
+ 
   def update
     passwd = params[:user][:password]
     passwd_confirm = params[:user][:password_confirmation]

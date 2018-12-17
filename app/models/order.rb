@@ -5,6 +5,7 @@ class Order < ApplicationRecord
 
   scope :validar, ->(q) {where("cupom LIKE ?","%#{q}%")}
   scope :user_order, -> (user) { where(user: user.id)}
+  
 
   def calcula_validade
   end
