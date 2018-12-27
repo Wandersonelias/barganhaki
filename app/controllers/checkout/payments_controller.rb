@@ -24,6 +24,9 @@ class Checkout::PaymentsController < ApplicationController
     end
     
     def formapagamento
+      pagseguro_session = PagSeguro::Session.new
+      @session_id = pagseguro_session.create.id
+
       carrinho = JSON.parse(cookies["carrinho"]) #recebe o cookie de "Carrinho"
       carrinho.each do |product| #percorre o array carrinho pegando o id dos produtos
         params["produto_ids"].each_with_index do |id, index|
@@ -66,72 +69,47 @@ class Checkout::PaymentsController < ApplicationController
     end
    
     def pagamento_confirmado?
-        
         token = params[:token_id]
 
-        Iugu.api_key = "a47a7e30aa6a12e8603a7d5452fe5e27"
-        payment_method = nil
-        
-        customer = Iugu::Customer.create({
-          email: current_user.email,
-          name: current_user.name,
-          notes: "Cartão para ser usado em compras barganhaki, email #{current_user.email}"
-        })
-        
-        payment_method = customer.payment_methods.create({
-          description: "Cartão #{current_user.name} - #{current_user.email}",
-          token: token
-        })
+        payment = PagSeguro::Payment.new(notification_url: 'www.eventick.com.br/notify', payment_method: 'creditCard', reference: '1')
+
+        payment.reference = 12345
 
         itens = []
         dados = JSON.parse(cookies["carrinho"]) #recebe o cookie de "Carrinho"
         dados.each do |product_hash| #percorre o array carrinho pegando o id dos produtos
           product = Product.find(product_hash["id"]) 
-          valor = product.pricefor
-          valor_centavos = (valor * 100).to_i
-          itens << [
-            {
-              "description" => product.description,
-              "quantity" => product_hash["quantidade"],
-              "price_cents" => valor_centavos
-            }
-          ]
+          payment.items << PagSeguro::Item.new(
+            id: product.id,
+            description: product.description,
+            amount: product.pricefor,
+            quantity: product_hash["quantidade"]
+          )
         end
-        options = {
-          "email"=> current_user.email,
-          "months"=> 1, # quantidade de parcelas
-          "items" => itens
-        }
-        
-        options["customer_payment_method_id"] = payment_method.id
-        
-        payment_retorn = Iugu::Charge.create(options)
-        
-        if payment_retorn.errors.present?
-          begin
-            mensagem = payment_retorn.errors.map{|k,v| "#{k}: #{v.join(",")}"}.join(", ")
-          rescue
-            mensagem = payment_retorn.errors.inspect rescue "Erro ao fazer pagamento, tente novamente mais tarde"
-          end
-          raise mensagem
-        else
-          if payment_retorn.respond_to?(:LR)
-            if payment_retorn.LR != "00"
-              raise payment_retorn.message
-            end
-          else
-            if payment_retorn.respond_to?(:identification) &&  payment_retorn.respond_to?(:success) && payment_retorn.success
-              return true
-            else
-              raise payment_retorn.message
-            end
-          end
-        end
-        #caputura o 
-        @order.invoice_id = payment_retorn.invoice_id
-        #envio sms
 
-        
+
+
+
+        #====== versão antiga da api ======#
+        phone = PagSeguro::Phone.new('11', '999999999')
+        document = PagSeguro::Document.new('92871399204')
+        sender = PagSeguro::Sender.new(email: 'cirdes@eventick.com.br', name: 'Cirdes Henrique', hash_id: 1234 )
+        sender.phone = phone
+        sender.document = document
+        payment.sender = sender
+        address = PagSeguro::Address.new(postal_code: '01318002', street: 'AV BRIGADEIRO LUIS ANTONIO', number: '1892', complement: '112', district: 'Bela Vista', city: 'São Paulo', state: 'SP')
+        credit_card = PagSeguro::CreditCard.new(token)
+        credit_card.installment = PagSeguro::Installment.new(installment_quantity, installment_value) #verificar essas informações
+        credit_card.holder = PagSeguro::Holder.new('Cirdes Henrique', '04/2019')
+        credit_card.billing_address = address
+        payment.credit_card = credit_card
+
+        transaction = payment.transaction
+
+        if transaction.errors.length > 0
+          raise transaction.errors[0]["message"]
+        end
+
         return true
         
     end

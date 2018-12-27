@@ -61,10 +61,8 @@ $.rails.allowAction = function(element) {
 
 var pagamento = {};
 pagamento.cartao = function(event){
+  PagSeguroDirectPayment.getSenderHash();
   event.preventDefault();
-  Iugu.setAccountID("B0505CF3B7824869AE34E6BD785F2D00");
-  Iugu.setTestMode(true); 
-  Iugu.setup();
 
   var nome = $("#nomeCartao").val();
   var number = $("#numeroCartao").val();
@@ -79,17 +77,15 @@ pagamento.cartao = function(event){
     sobrenome = splitName[splitName.length-1];
   }catch(e){}
 
-  cc = Iugu.CreditCard(number, month, year, nome, sobrenome, cvv);
-
-  Iugu.createPaymentToken(cc, function(dados) {
-    debugger
-    if (dados.errors) {
-      alert('Cartão inválido, tente novamente');
-    } else {
+  var params = {
+    cardNumber: number,
+    cvv: cvv,
+    expirationMonth: month,
+    expirationYear: year,
+    success: function (response) {
       var data = {}
-      data.token_id = dados.id
+      data.token_id = response.card.token
       data.months = 1 //$("#vezesCartao").val();
-     
 
       var url = '/finalizar/compra.json';
 
@@ -106,7 +102,11 @@ pagamento.cartao = function(event){
       }).fail(function(jqXHR, textStatus) {
         alert("erro")
       });
+    },
+    error: function (response) {
+      alert('Cartão inválido, tente novamente');
     }
-  });
+  }
 
+  PagSeguroDirectPayment.createCardToken(params);
 }

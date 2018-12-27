@@ -1,0 +1,7 @@
+# gems para o uso do mongodb no rails 
+gem 'mongoid'
+gem 'bson_ext'
+
+#gem para uso de autenticação so sitema de autenticação
+gem 'devise'
+

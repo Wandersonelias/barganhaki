@@ -1,4 +1,4 @@
-<script src="https://js.iugu.com/v2"></script>
+<script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 <div class="container">
 <h1>Pagamento do pedido</h1>
     <div class="row">
@@ -89,6 +89,9 @@
   <div class="row">
       <div class="form-row col-md-6">
       <div class="form-group col-md-3">
+      <script>
+        PagSeguroDirectPayment.setSessionId('<%= @session_id %>');
+      </script>
       <a href="#" onclick="pagamento.cartao(event)" class="btn btn-primary">Finalizar pagamento</a>
       </div>
       </div>

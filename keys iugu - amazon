@@ -1,0 +1,22 @@
+ID:
+7BF84F636188451EA2CE81F1FCA69DE5
+
+IUGU.JS
+Iugu.setAccountID("7BF84F636188451EA2CE81F1FCA69DE5");
+
+token test:
+
+fbb01254c79ddaecc9ad696535a1f241
+
+#AWS_ID="AKIAJBIHKW46GWAOBOCQ" AWS_KEY="YjFEI4TTmS+d8+tfMzflWiGHpRqMfbe0hMjiqZ6J" AWS_BUCKET="barganha-images" rails s
+
+#heroku config:set S3_BUCKET_NAME="barganha-images"
+#heroku config:set AWS_ACCESS_KEY_ID="AKIAJBIHKW46GWAOBOCQ"
+#heroku config:set AWS_SECRET_ACCESS_KEY="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"
+#heroku config:set AWS_REGION="us-east-1"
+
+
+########################################################################################################################
+AWS_ID="AKIAJBIHKW46GWAOBOCQ" AWS_KEY="YjFEI4TTmS+d8+tfMzflWiGHpRqMfbe0hMjiqZ6J" AWS_BUCKET="barganha-images" rails s
+
+

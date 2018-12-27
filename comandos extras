@@ -1,0 +1,6 @@
+rails g paperclip model campo_quesera_incluido
+
+
+Diretorio remoto para push no github
+git remote add origin https://github.com/Wandersonelias/barganhaki.git
+
